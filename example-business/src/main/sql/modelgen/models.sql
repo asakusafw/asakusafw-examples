@@ -11,7 +11,7 @@ CREATE TABLE STOCK (
     ITEM_CODE         BIGINT     NOT NULL,
     COST              INT        NOT NULL,
     QUANTITY          INT        NOT NULL
-) type=InnoDB;
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS SHIPMENT;
 CREATE TABLE SHIPMENT (
@@ -25,7 +25,7 @@ CREATE TABLE SHIPMENT (
     SHIPPED_DATE      DATETIME   NULL,
     ITEM_CODE         BIGINT     NOT NULL,
     COST              INT        NULL
-) type=InnoDB;
+) ENGINE=InnoDB;
 
 
 -- test data
