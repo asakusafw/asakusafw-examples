@@ -38,6 +38,11 @@ public class TutorialOpTest {
 
 	/**
 	 * Test method for {@link com.example.tutorial.operator.TutorialOp#join(com.example.tutorial.modelgen.table.model.ItemInfo, com.example.tutorial.modelgen.table.model.OrderDetail)} .
+	 * 
+	 * abstractな演算子はテスト不要だが、あえてテストしようとすると下記のようになる。
+	 * 
+	 * Needless to test abstract operator method, but you can do as following.
+	 * 
 	 */
 	@Test
 	public void testJoin() {
@@ -53,6 +58,11 @@ public class TutorialOpTest {
 
 	/**
 	 * Test method for {@link com.example.tutorial.operator.TutorialOp#sum(com.example.tutorial.modelgen.view.model.JoinOrder)}.
+	 * 
+	 * abstractな演算子はテスト不要だが、あえてテストしようとすると下記のようになる。
+	 * 
+	 * Needless to test abstract operator method, but you can do as following.
+	 * 
 	 */
 	@Test(expected = UnsupportedOperationException.class)
 	public void testSum() {
