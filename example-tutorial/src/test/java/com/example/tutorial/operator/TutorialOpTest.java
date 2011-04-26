@@ -44,7 +44,7 @@ public class TutorialOpTest {
 	 * Needless to test abstract operator method, but you can do as following.
 	 * 
 	 */
-	@Test
+	@Test(expected = UnsupportedOperationException.class)
 	public void testJoin() {
 		TutorialOpImpl operator = new TutorialOpImpl();
 
