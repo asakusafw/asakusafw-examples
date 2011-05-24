@@ -1,0 +1,5 @@
+Example of Log Analysis.
+This Implementation uses HDFS Source/Sink.
+
+ログ解析の例。
+HDFSからデータを読み込みHDFSにデータを書き込む。

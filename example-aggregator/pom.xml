@@ -20,6 +20,7 @@
 	<modules>
 		<module>../example-business</module>
 		<module>../example-tutorial</module>
+		<module>../example-basketanalysis</module>
 	</modules>
 
 </project>
