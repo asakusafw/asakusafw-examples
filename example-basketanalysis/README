@@ -3,3 +3,6 @@ This Implementation uses HDFS Source/Sink.
 
 ログ解析の例。
 HDFSからデータを読み込みHDFSにデータを書き込む。
+
+this example need arguments like following.
+export ASAKUSA_BATCH_ARGS='WINDOW=100000'
