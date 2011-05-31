@@ -116,10 +116,6 @@
 					</includes>
 					<forkMode>once</forkMode>
 					<testFailureIgnore>true</testFailureIgnore>
-					<systemPropertyVariables>
-						<ASAKUSA_MODELGEN_PACKAGE>${asakusa.modelgen.package}</ASAKUSA_MODELGEN_PACKAGE>
-						<ASAKUSA_TESTTOOLS_CONF>${asakusa.testtools.conf}</ASAKUSA_TESTTOOLS_CONF>
-					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -150,7 +146,7 @@
 						<exclude>com.asakusafw:asakusa-distribution</exclude>
 						<exclude>com.asakusafw:asakusa-cleaner</exclude>
 						<exclude>com.asakusafw:asakusa-thundergate</exclude>
-						<exclude>ashigel-compiler-bootstrap</exclude>
+						<exclude>com.asakusafw:ashigel-compiler-bootstrap</exclude>
 						<exclude>org.eclipse.jdt:core</exclude>
 					</excludes>
 					<additionalConfig>
@@ -237,7 +233,7 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 				<executions>
 					<execution>
 						<id>modelgen</id>
-						<phase>process-resources</phase>
+						<phase>generate-sources</phase>
 						<configuration>
 							<target>
 								<property name="compile_classpath" refid="maven.test.classpath" />
@@ -408,6 +404,20 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 		<dependency>
 			<groupId>com.asakusafw</groupId>
 			<artifactId>asakusa-thundergate</artifactId>
+			<version>${asakusafw.version}</version>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.asakusafw</groupId>
+			<artifactId>asakusa-thundergate-test-moderator</artifactId>
+			<version>${asakusafw.version}</version>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.asakusafw</groupId>
+			<artifactId>asakusa-test-data-generator</artifactId>
 			<version>${asakusafw.version}</version>
 			<scope>test</scope>
 			<optional>true</optional>
