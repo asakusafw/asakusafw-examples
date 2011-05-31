@@ -239,7 +239,7 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 							<target>
 								<property name="compile_classpath" refid="maven.test.classpath" />
 								<ant antfile="${basedir}/src/main/scripts/asakusa-build.xml">
-									<target name="modelgen" />
+									<target name="modelgen:only-dmdl" />
 								</ant>
 							</target>
 						</configuration>

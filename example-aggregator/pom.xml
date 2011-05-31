@@ -4,7 +4,7 @@
 	<name>Asakusa Framework Examples Aggregator POM</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>examples-aggregator</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<description>Asakusa Framework Examples Aggregator POM</description>
@@ -21,6 +21,7 @@
 		<module>../example-business</module>
 		<module>../example-tutorial</module>
 		<module>../example-basketanalysis</module>
+		<module>../example-wordcount</module>
 	</modules>
 
 </project>
