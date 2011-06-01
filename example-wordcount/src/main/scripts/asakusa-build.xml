@@ -6,12 +6,28 @@
     <!-- ===================================================================== -->
 
     <property environment="env" />
+    <property file="build.properties" />
+
+    <condition property="asakusa.build.database.enabled">
+        <equals arg1="${asakusa.database.enabled}" arg2="true" />
+    </condition>
+
+    <condition property="asakusa.build.testdatasheet.generate">
+        <equals arg1="${asakusa.testdatasheet.generate}" arg2="true" />
+    </condition>
 
     <!-- ===================================================================== -->
     <!--  Asakusa提供の自動生成ツール                                  -->
     <!-- ===================================================================== -->
 
-    <target name="modelgen" description="モデルクラスの生成を行います。同時にテストデータ定義シートを生成します。">
+    <target name="modelgen"
+            description="モデルクラスの生成を行います。同時にテストデータ定義シートを生成します。"
+            depends="modelgen:ddl-dmdl, modelgen:only-dmdl">
+    </target>
+
+    <target name="modelgen:ddl-dmdl"
+            description="MySQLを使用したModelGenerator処理を行います。"
+            if="asakusa.build.database.enabled">
 
         <property file="${asakusa.jdbc.conf}" />
         <mkdir dir="${asakusa.modelgen.output}" />
@@ -107,20 +123,7 @@
             <arg value="-targetencoding" />
             <arg value="${project.build.sourceEncoding}" />
         </java>
-        <java classname="com.asakusafw.testdata.generator.excel.Main"
-              classpath="${compile_classpath}"
-              fork="true">
-            <jvmarg value="-Dlogback.configurationFile=src/test/resources/logback-test.xml" />
-            <jvmarg value="-Djava.awt.headless=true" />
-            <arg value="-format" />
-            <arg value="${asakusa.testdatasheet.format}" />
-            <arg value="-output" />
-            <arg value="${asakusa.testdatasheet.output}" />
-            <arg value="-source" />
-            <arg path="${asakusa.dmdl.dir}:${asakusa.dmdl.fromddl.output}" />
-            <arg value="-encoding" />
-            <arg value="${asakusa.dmdl.encoding}" />
-        </java>
+        <antcall target="testdata:sheet-generated" />
 
         <sql driver="${jdbc.driver}"
              url="${jdbc.url}"
@@ -133,7 +136,8 @@
     </target>
 
     <target name="modelgen:only-dmdl"
-            description="モデルクラスの生成を行います。同時にテストデータ定義シートを生成します。">
+            description="MySQLを使用しないModelGenerator処理を行います。"
+            unless="asakusa.build.database.enabled">
 
         <property file="${asakusa.jdbc.conf}" />
         <mkdir dir="${asakusa.modelgen.output}" />
@@ -161,6 +165,11 @@
             <arg value="-targetencoding" />
             <arg value="${project.build.sourceEncoding}" />
         </java>
+        <antcall target="testdata:sheet-generated" />
+    </target>
+
+    <target name="testdata:sheet-generated"
+            if="asakusa.build.testdatasheet.generate">
         <java classname="com.asakusafw.testdata.generator.excel.Main"
               classpath="${compile_classpath}"
               fork="true">
@@ -170,11 +179,10 @@
             <arg value="-output" />
             <arg value="${asakusa.testdatasheet.output}" />
             <arg value="-source" />
-            <arg path="${asakusa.dmdl.dir}" />
+            <arg path="${asakusa.dmdl.dir}:${asakusa.dmdl.fromddl.output}" />
             <arg value="-encoding" />
             <arg value="${asakusa.dmdl.encoding}" />
         </java>
-
     </target>
 
     <target name="batch:compile:all" description="全てのバッチクラスに対してバッチコンパイルを実行します">
@@ -283,9 +291,20 @@
                  token="/var/log"
                  value="${env.ASAKUSA_HOME}/log" />
 
-        <antcall target="switch:standalone" />
+        <!-- パーミッション設定 -->
+        <chmod perm="755">
+            <fileset dir="${env.ASAKUSA_HOME}">
+                <include name="**/*.sh" />
+            </fileset>
+        </chmod>
+        <chmod perm="777" file="/tmp/asakusa" type="dir" />
 
-        <!-- 開発環境用テーブル生成 -->
+        <antcall target="install:dev:create-table" />
+        <antcall target="switch:standalone" />
+    </target>
+
+    <target name="install:dev:create-table" if="asakusa.build.database.enabled">
+        <!-- ThunderGate用テーブル生成 -->
         <property file="${env.ASAKUSA_HOME}/bulkloader/conf/asakusa-jdbc.properties" />
         <sql driver="${jdbc.driver}"
              url="${jdbc.url}"
@@ -296,15 +315,6 @@
             <transaction src="${env.ASAKUSA_HOME}/bulkloader/sql/create_table.sql" />
             <transaction src="${env.ASAKUSA_HOME}/bulkloader/sql/insert_import_table_lock.sql" />
         </sql>
-
-        <!-- パーミッション設定 -->
-        <chmod perm="755">
-            <fileset dir="${env.ASAKUSA_HOME}">
-                <include name="**/*.sh" />
-            </fileset>
-        </chmod>
-        <chmod perm="777" file="/tmp/asakusa" type="dir" />
-
     </target>
 
     <target name="switch:standalone">
