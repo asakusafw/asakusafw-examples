@@ -30,7 +30,7 @@ public class TutorialBatchTest {
      */        
     @Test
     public void testExample() throws Throwable {
-        // XXX src/test/data/TutorialBatchTest/testExample配下にテストデータを配置してテストを実行する
+        
         BatchTestDriver driver = new BatchTestDriver();
         driver.runTest(TutorialBatch.class);
         
