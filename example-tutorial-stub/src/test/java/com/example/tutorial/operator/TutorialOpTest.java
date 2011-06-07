@@ -15,7 +15,16 @@
  */
 package com.example.tutorial.operator;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
+
+import com.example.tutorial.modelgen.table.model.ItemInfo;
+import com.example.tutorial.modelgen.table.model.OrderAmount;
+import com.example.tutorial.modelgen.table.model.OrderDetail;
+import com.example.tutorial.modelgen.view.model.JoinOrder;
+import com.example.tutorial.modelgen.view.model.SumOrder;
 
 /**
  * サンプル：演算子のテストケース
@@ -28,11 +37,59 @@ import org.junit.Test;
 public class TutorialOpTest {
 
 	/**
+	 * Test method for {@link com.example.tutorial.operator.TutorialOp#join(com.example.tutorial.modelgen.table.model.ItemInfo, com.example.tutorial.modelgen.table.model.OrderDetail)} .
+	 * 
+	 * abstractな演算子はテスト不要だが、あえてテストしようとすると下記のようになる。
+	 * 
+	 * Needless to test abstract operator method, but you can do as following.
+	 * 
+	 */
+	@Test(expected = UnsupportedOperationException.class)
+	public void testJoin() {
+		TutorialOpImpl operator = new TutorialOpImpl();
+
+		OrderDetail order = new OrderDetail();
+		ItemInfo info = new ItemInfo();
+
+		JoinOrder actual = operator.join(info, order);
+
+		assertThat(actual, is(not(nullValue())));
+	}
+
+	/**
+	 * Test method for {@link com.example.tutorial.operator.TutorialOp#sum(com.example.tutorial.modelgen.view.model.JoinOrder)}.
+	 * 
+	 * abstractな演算子はテスト不要だが、あえてテストしようとすると下記のようになる。
+	 * 
+	 * Needless to test abstract operator method, but you can do as following.
+	 * 
+	 */
+	@Test(expected = UnsupportedOperationException.class)
+	public void testSum() {
+		TutorialOpImpl operator = new TutorialOpImpl();
+
+		JoinOrder each = null;
+		SumOrder actual = operator.sum(each);
+
+		assertThat(actual, is(not(nullValue())));
+	}
+
+	/**
 	 * Test method for {@link com.example.tutorial.operator.TutorialOp#toAmount(com.example.tutorial.modelgen.view.model.SumOrder)}.
 	 */
 	@Test
 	public void testToAmount() {
-		// XXX 単体テストを記述する。演算子クラスはAPTで生成される演算子の実装クラス（TutorialOpImpl）を使用することにより、普通のJUnitのテストと同じ書き味で記述することができる。
+		TutorialOpImpl operator = new TutorialOpImpl();
+		
+		SumOrder total = new SumOrder();
+		total.setAmount(100);
+		total.setOrderId(10);
+		
+		OrderAmount actual = operator.toAmount(total);
+		
+		assertThat(actual, is(not(nullValue())));
+		assertThat(actual.getAmount(), is(equalTo(100L)));
+		assertThat(actual.getOrderId(), is(equalTo(10L)));
 	}
 
 	/**
@@ -40,6 +97,14 @@ public class TutorialOpTest {
 	 */
 	@Test
 	public void testSetStatus() {
-		// XXX 単体テストを記述する
+		TutorialOpImpl operator = new TutorialOpImpl();
+		
+		OrderDetail order = new OrderDetail();
+		String status = "STATUS";
+		
+		operator.setStatus(order, status);
+		
+		assertThat(order.getStatusAsString(), is(not(nullValue())));
+		assertThat(order.getStatusAsString(), is(equalTo("STATUS")));
 	}
 }
