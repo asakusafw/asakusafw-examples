@@ -15,13 +15,15 @@
  */
 package com.example.tutorial.operator;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
 import com.example.tutorial.modelgen.table.model.ItemInfo;
-import com.example.tutorial.modelgen.table.model.OrderAmount;
 import com.example.tutorial.modelgen.table.model.OrderDetail;
 import com.example.tutorial.modelgen.view.model.JoinOrder;
 import com.example.tutorial.modelgen.view.model.SumOrder;
@@ -72,24 +74,6 @@ public class TutorialOpTest {
 		SumOrder actual = operator.sum(each);
 
 		assertThat(actual, is(not(nullValue())));
-	}
-
-	/**
-	 * Test method for {@link com.example.tutorial.operator.TutorialOp#toAmount(com.example.tutorial.modelgen.view.model.SumOrder)}.
-	 */
-	@Test
-	public void testToAmount() {
-		TutorialOpImpl operator = new TutorialOpImpl();
-		
-		SumOrder total = new SumOrder();
-		total.setAmount(100);
-		total.setOrderId(10);
-		
-		OrderAmount actual = operator.toAmount(total);
-		
-		assertThat(actual, is(not(nullValue())));
-		assertThat(actual.getAmount(), is(equalTo(100L)));
-		assertThat(actual.getOrderId(), is(equalTo(10L)));
 	}
 
 	/**
