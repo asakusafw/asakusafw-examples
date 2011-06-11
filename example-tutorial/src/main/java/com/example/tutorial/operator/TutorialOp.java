@@ -15,12 +15,10 @@
  */
 package com.example.tutorial.operator;
 
-import com.asakusafw.vocabulary.operator.Convert;
 import com.asakusafw.vocabulary.operator.MasterJoin;
 import com.asakusafw.vocabulary.operator.Summarize;
 import com.asakusafw.vocabulary.operator.Update;
 import com.example.tutorial.modelgen.table.model.ItemInfo;
-import com.example.tutorial.modelgen.table.model.OrderAmount;
 import com.example.tutorial.modelgen.table.model.OrderDetail;
 import com.example.tutorial.modelgen.view.model.JoinOrder;
 import com.example.tutorial.modelgen.view.model.SumOrder;
@@ -46,21 +44,6 @@ public abstract class TutorialOp {
      */
     @Summarize
     public abstract SumOrder sum(JoinOrder each);
-    
-    // オブジェクトを使いまわす
-    private OrderAmount amount = new OrderAmount();
-    
-    /**
-     * 集計結果をテーブルモデルに変換する。
-     * @param total 変換対象
-     * @return 変換後
-     */
-    @Convert
-    public OrderAmount toAmount(SumOrder total) {
-        amount.setAmount(total.getAmount());
-        amount.setOrderId(total.getOrderId());
-        return amount;
-    }
     
     /**
      * 指定の注文明細に状態を設定する。

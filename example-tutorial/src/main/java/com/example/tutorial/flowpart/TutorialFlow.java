@@ -20,6 +20,7 @@ import com.asakusafw.vocabulary.flow.FlowPart;
 import com.asakusafw.vocabulary.flow.In;
 import com.asakusafw.vocabulary.flow.Out;
 import com.asakusafw.vocabulary.flow.util.CoreOperatorFactory;
+import com.asakusafw.vocabulary.flow.util.CoreOperatorFactory.Extend;
 import com.example.tutorial.modelgen.table.model.ItemInfo;
 import com.example.tutorial.modelgen.table.model.OrderAmount;
 import com.example.tutorial.modelgen.table.model.OrderDetail;
@@ -27,7 +28,6 @@ import com.example.tutorial.operator.TutorialOpFactory;
 import com.example.tutorial.operator.TutorialOpFactory.Join;
 import com.example.tutorial.operator.TutorialOpFactory.SetStatus;
 import com.example.tutorial.operator.TutorialOpFactory.Sum;
-import com.example.tutorial.operator.TutorialOpFactory.ToAmount;
 
 /**
  * チュートリアルで利用するフロー部品。
@@ -35,51 +35,52 @@ import com.example.tutorial.operator.TutorialOpFactory.ToAmount;
 @FlowPart
 public class TutorialFlow extends FlowDescription {
 
-    private In<OrderDetail> orderIn;
+	private In<OrderDetail> orderIn;
 
-    private In<ItemInfo> itemIn;
+	private In<ItemInfo> itemIn;
 
-    private Out<OrderDetail> orderOut;
+	private Out<OrderDetail> orderOut;
 
-    private Out<OrderAmount> resultOut;
-    
-    // チュートリアル用の演算子ファクトリと組込みのファクトリを作成
-    private TutorialOpFactory op = new TutorialOpFactory();
-    private CoreOperatorFactory core = new CoreOperatorFactory();
-    
-    /**
-     * コンストラクタ。
-     * @param orderIn 処理対象の注文明細
-     * @param itemIn 商品マスタ
-     * @param orderOut 処理結果の注文明細
-     * @param resultOut 集計結果
-     */
-    public TutorialFlow(
-            In<OrderDetail> orderIn, In<ItemInfo> itemIn,
-            Out<OrderDetail> orderOut, Out<OrderAmount> resultOut) {
-        this.orderIn = orderIn;
-        this.itemIn = itemIn;
-        this.orderOut = orderOut;
-        this.resultOut = resultOut;
-    }
+	private Out<OrderAmount> resultOut;
 
-    @Override
-    protected void describe() {
-        // まずは明細と商品マスタを結合
-        Join join = op.join(itemIn, orderIn);
-        
-        // 結合に失敗したものはエラーフラグを立てて終了させておく
-        SetStatus missing = op.setStatus(join.missed, "商品不明");
-        orderOut.add(missing.out);
-        
-        // 結合に成功したものは注文ごとに集計
-        Sum sum = op.sum(join.joined);
-        
-        // そのままでは使えないので、テーブルモデルに変換して出力
-        ToAmount result = op.toAmount(sum.out);
-        resultOut.add(result.out);
-        
-        // 不要な出力を除去
-        core.stop(result.original);
-    }
+	// チュートリアル用の演算子ファクトリと組込みのファクトリを作成
+	private TutorialOpFactory op = new TutorialOpFactory();
+	private CoreOperatorFactory core = new CoreOperatorFactory();
+
+	/**
+	 * コンストラクタ。
+	 * 
+	 * @param orderIn
+	 *            処理対象の注文明細
+	 * @param itemIn
+	 *            商品マスタ
+	 * @param orderOut
+	 *            処理結果の注文明細
+	 * @param resultOut
+	 *            集計結果
+	 */
+	public TutorialFlow(In<OrderDetail> orderIn, In<ItemInfo> itemIn,
+			Out<OrderDetail> orderOut, Out<OrderAmount> resultOut) {
+		this.orderIn = orderIn;
+		this.itemIn = itemIn;
+		this.orderOut = orderOut;
+		this.resultOut = resultOut;
+	}
+
+	@Override
+	protected void describe() {
+		// まずは明細と商品マスタを結合
+		Join join = op.join(itemIn, orderIn);
+
+		// 結合に失敗したものはエラーフラグを立てて終了させておく
+		SetStatus missing = op.setStatus(join.missed, "商品不明");
+		orderOut.add(missing.out);
+
+		// 結合に成功したものは注文ごとに集計
+		Sum sum = op.sum(join.joined);
+
+		// 出力先のテーブルに対応するモデルに変換
+		Extend<OrderAmount> result = core.extend(sum.out, OrderAmount.class);
+		resultOut.add(result.out);
+	}
 }
