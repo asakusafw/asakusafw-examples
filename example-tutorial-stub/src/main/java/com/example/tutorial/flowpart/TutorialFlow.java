@@ -20,10 +20,14 @@ import com.asakusafw.vocabulary.flow.FlowPart;
 import com.asakusafw.vocabulary.flow.In;
 import com.asakusafw.vocabulary.flow.Out;
 import com.asakusafw.vocabulary.flow.util.CoreOperatorFactory;
+import com.asakusafw.vocabulary.flow.util.CoreOperatorFactory.Extend;
 import com.example.tutorial.modelgen.table.model.ItemInfo;
 import com.example.tutorial.modelgen.table.model.OrderAmount;
 import com.example.tutorial.modelgen.table.model.OrderDetail;
 import com.example.tutorial.operator.TutorialOpFactory;
+import com.example.tutorial.operator.TutorialOpFactory.Join;
+import com.example.tutorial.operator.TutorialOpFactory.SetStatus;
+import com.example.tutorial.operator.TutorialOpFactory.Sum;
 
 /**
  * チュートリアルで利用するフロー部品。
@@ -62,5 +66,5 @@ public class TutorialFlow extends FlowDescription {
     @Override
     protected void describe() {
     	// XXX Operator DSLを使用してデータフローを記述する
-    }
+	}
 }

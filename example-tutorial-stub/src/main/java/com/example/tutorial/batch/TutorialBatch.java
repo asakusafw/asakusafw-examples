@@ -17,6 +17,7 @@ package com.example.tutorial.batch;
 
 import com.asakusafw.vocabulary.batch.Batch;
 import com.asakusafw.vocabulary.batch.BatchDescription;
+import com.example.tutorial.jobflow.TutorialJob;
 
 /**
  * チュートリアル用のバッチ。

@@ -53,5 +53,5 @@ public abstract class TutorialOp {
     @Update
     public void setStatus(OrderDetail order, String status) {
     	// XXX 注文明細orderのステータスを所与のstatsuにより書き換える
-    }
+   }
 }
