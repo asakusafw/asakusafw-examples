@@ -4,7 +4,7 @@
 	<name>Asakusa Franework Example Tutorial Stub</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>example-tutorial-stub</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.2-SNAPSHOT</version>
 
 	<url>http://asakusafw.com</url>
 	<licenses>
@@ -16,7 +16,7 @@
 	</licenses>
 
 	<properties>
-		<asakusafw.version>0.2.0-SNAPSHOT</asakusafw.version>
+		<asakusafw.version>0.2-SNAPSHOT</asakusafw.version>
 		<cloudera.cdh.version>0.20.2-cdh3u0</cloudera.cdh.version>
 		<mysql.jdbc.version>5.1.16</mysql.jdbc.version>
 		<ashigeru.lang.version>0.1.0</ashigeru.lang.version>
