@@ -4,7 +4,7 @@
 	<name>Asakusa Framework Word Count Example</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>example-wordcount</artifactId>
-	<version>0.2.0-RC1</version>
+	<version>0.2.0-RC2</version>
 
 	<url>http://asakusafw.com</url>
 	<licenses>
@@ -16,7 +16,7 @@
 	</licenses>
 
 	<properties>
-		<asakusafw.version>0.2.0-RC1</asakusafw.version>
+		<asakusafw.version>0.2.0-RC2</asakusafw.version>
 
 		<cloudera.cdh.version>0.20.2-cdh3u0</cloudera.cdh.version>
 		<mysql.jdbc.version>5.1.16</mysql.jdbc.version>
@@ -92,6 +92,7 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.5</version>
 				<configuration>
+>>>>>>> central-0.2-develop
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
@@ -104,6 +105,7 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 					<source>1.6</source>
 					<target>1.6</target>
+					<compilerArgument>-Xmaxerrs" "10000" "-XprintRounds</compilerArgument>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -330,7 +332,8 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 						<encoding>UTF-8</encoding>
 					</configuration>
 				</plugin>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
