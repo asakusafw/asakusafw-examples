@@ -4,7 +4,7 @@
 	<name>Asakusa Framework Word Count Example</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>example-wordcount</artifactId>
-	<version>0.2.0-RC4</version>
+	<version>0.2.0</version>
 
 	<url>http://asakusafw.com</url>
 	<licenses>
@@ -16,7 +16,7 @@
 	</licenses>
 
 	<properties>
-		<asakusafw.version>0.2.0-RC4</asakusafw.version>
+		<asakusafw.version>0.2.0</asakusafw.version>
 
 		<cloudera.cdh.version>0.20.2-cdh3u0</cloudera.cdh.version>
 		<mysql.jdbc.version>5.1.16</mysql.jdbc.version>
