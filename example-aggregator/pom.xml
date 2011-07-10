@@ -22,6 +22,7 @@
 		<module>../example-tutorial</module>
 		<module>../example-basketanalysis</module>
 		<module>../example-wordcount</module>
+		<module>../example-clob</module>
 	</modules>
 
 </project>
