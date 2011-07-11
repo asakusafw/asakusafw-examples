@@ -4,10 +4,10 @@
 	<name>CLOB example</name>
 	<groupId>com.asakusafw.example</groupId>
 	<artifactId>example-clob</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>0.2.1-RC1</version>
 
 	<properties>
-		<asakusafw.version>0.2-SNAPSHOT</asakusafw.version>
+		<asakusafw.version>0.2.1-RC1</asakusafw.version>
 
 		<cloudera.cdh.version>0.20.2-cdh3u0</cloudera.cdh.version>
 		<mysql.jdbc.version>5.1.16</mysql.jdbc.version>
