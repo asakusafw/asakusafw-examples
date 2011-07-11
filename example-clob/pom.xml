@@ -1,22 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<name>Asakusa Franework Example Tutorial Stub</name>
-	<groupId>com.asakusafw</groupId>
-	<artifactId>example-tutorial-stub</artifactId>
-	<version>0.2.0</version>
-
-	<url>http://asakusafw.com</url>
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>manual</distribution>
-		</license>
-	</licenses>
+	<name>CLOB example</name>
+	<groupId>com.asakusafw.example</groupId>
+	<artifactId>example-clob</artifactId>
+	<version>1.0-SNAPSHOT</version>
 
 	<properties>
-		<asakusafw.version>0.2.0</asakusafw.version>
+		<asakusafw.version>0.2-SNAPSHOT</asakusafw.version>
+
 		<cloudera.cdh.version>0.20.2-cdh3u0</cloudera.cdh.version>
 		<mysql.jdbc.version>5.1.16</mysql.jdbc.version>
 		<ashigeru.lang.version>0.1.0</ashigeru.lang.version>
@@ -309,29 +301,7 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>com.mycila.maven-license-plugin</groupId>
-				<artifactId>maven-license-plugin</artifactId>
-			</plugin>
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>com.mycila.maven-license-plugin</groupId>
-					<artifactId>maven-license-plugin</artifactId>
-					<version>1.9.0</version>
-					<configuration>
-						<aggregate>true</aggregate>
-						<strictCheck>true</strictCheck>
-						<header>../asakusa-parent/src/main/conf/source-header.txt</header>
-						<includes>
-							<include>src/**/*.java</include>
-						</includes>
-						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 
 	<dependencies>
