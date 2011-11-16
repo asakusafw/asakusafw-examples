@@ -1,0 +1,435 @@
+[33mcommit 86e510c4bc6d6a6c6faa8b0e9afd915ca7eda24e[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Nov 10 16:55:03 2011 +0900
+
+    Bumped version number to 0.2.3-RC2
+
+[33mcommit a7be19d793b227a60a8165faf5643c4e80374847[m
+Merge: 305e6b2 d5c2bf4
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Fri Nov 4 17:09:10 2011 +0900
+
+    git commit -a -m "Bumped version number to 0.2.3-RC1"
+
+[33mcommit d5c2bf473fd5e112fcd77a5eb4eb67a745ac180c[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Oct 27 21:01:22 2011 +0900
+
+    Modified for supporting ThunderGate cache feature (#98).
+
+[33mcommit 6514c0cad29b5207c0f5436560f7de040ed41ee0[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Wed Oct 26 18:14:29 2011 +0900
+
+    Modified Default CDH3 version from u1 to u2 (#99).
+
+[33mcommit fc5a42f78f23a6de1e0dd53538ccd452b7dcde82[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Wed Oct 5 16:00:40 2011 +0900
+
+    Bumped up Cloudera CDH version from u0 to u1.
+
+[33mcommit 305e6b2a54582d8e8892c85b0a7f4fc40c8fc0b2[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Sep 29 12:40:30 2011 +0900
+
+    Bumped version number to 0.2.2
+
+[33mcommit 2a505f5fd2349a70671ac4a3dd840080775f7578[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Fri Sep 16 19:20:01 2011 +0900
+
+    Bumped version number to 0.2.2-RC1
+
+[33mcommit 40efaae0d6332de9a42c3cdd42a068b79c6f72cc[m
+Merge: 2d47859 d684bee
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Fri Sep 16 19:18:40 2011 +0900
+
+    Merge branch 'central-0.2-develop' into central-0.2-release
+
+[33mcommit d684beed3a3383a4345b2c6d749aea819ad105d2[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Sep 12 15:59:16 2011 +0900
+
+    Write framework version to build.log at batch compile
+
+[33mcommit 2d478591b29390c9d1936ebf0b957bd7c505b72c[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Jul 28 13:17:50 2011 +0900
+
+    Bumped version number to 0.2.1
+
+[33mcommit fc5336f21487b305301009e3a25afbfb1cb896fd[m
+Merge: 25e0cac ab0cbec
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Jul 28 13:16:26 2011 +0900
+
+    Merge branch 'central-0.2-develop' into central-0.2-release
+
+[33mcommit ab0cbec5cf06fff527453b77ed7e8f940d8c0b9d[m
+Merge: 1ab8d34 bf7308a
+Author: Suguru ARAKAWA <arakawa@gluegent.com>
+Date:   Tue Jul 26 12:10:03 2011 +0900
+
+    Merged an example for CLOB support.
+
+[33mcommit bf7308a9dda7d41d827a32f8a7bcc2f0021cd3c9[m
+Author: Suguru ARAKAWA <arakawa@gluegent.com>
+Date:   Tue Jul 26 11:47:18 2011 +0900
+
+    Use MEDIUMTEXT and LONGTEXT for property types.
+
+[33mcommit 25e0cac07dada508ac2b86881092f0f38d783d93[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jul 11 14:20:12 2011 +0900
+
+    Bumped version number to 0.2.1-RC1
+
+[33mcommit 8f98f66605f34ea3fbc5d95bbd114239f5e03aee[m
+Merge: beb3e81 1ab8d34
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jul 11 14:17:27 2011 +0900
+
+    Merge branch 'central-0.2-develop' into central-0.2-release
+
+[33mcommit 1ab8d341e0a11c3f22fc0e1690e362ba5cf72460[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jul 11 11:58:17 2011 +0900
+
+    Repository url of pom.xml defines https unnecessarily (#51).
+
+[33mcommit b1661f704c1b8a9d3ec72ff913beb6051570d41e[m
+Author: ashigeru <public@ashigeru.com>
+Date:   Sun Jul 10 23:28:30 2011 +0900
+
+    Add example-clob to the aggregator
+
+[33mcommit b428a24fb6e68dd84d0b7789d6b3dbfb41d3fca7[m
+Author: ashigeru <public@ashigeru.com>
+Date:   Sun Jul 10 21:53:56 2011 +0900
+
+    Add an example using CLOB.
+
+[33mcommit beb3e815435f339031aa83eb5f91f343ea6cfbc8[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Jun 30 11:03:04 2011 +0900
+
+    Bumped version number to 0.2.0
+
+[33mcommit 56a47b06e86a11f086788861eaa0fa7febf78e0f[m
+Merge: a51460e f6fa3ec
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Jun 30 11:01:24 2011 +0900
+
+    Merge branch 'central-0.2-develop' into central-0.2-release
+
+[33mcommit f6fa3ec4495b5106f25e71b47037332b26c138ec[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue Jun 28 19:08:21 2011 +0900
+
+    Fixed skiperr option for batch compile.
+
+[33mcommit a51460e8c82a990e5e8a097a29bccff12d4a055e[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jun 27 15:34:14 2011 +0900
+
+    Bumped version number to 0.2.0-RC4
+
+[33mcommit 9e07c93b2a323aa8cdafd721df1f7ca4f814bd47[m
+Merge: 4bdab77 1f56b32
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jun 27 15:31:45 2011 +0900
+
+    Merge branch 'central-0.2-develop' into central-0.2-release
+
+[33mcommit 1f56b325499dbdb7301393ddad65b4ef4c62d147[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jun 27 15:29:22 2011 +0900
+
+    Modified build.properties settings for using old test driver API.
+
+[33mcommit 4bdab775309ea7d8008c6cfc41ee9477b628025e[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Jun 23 22:51:51 2011 +0900
+
+    Bumped version number to 0.2.0-RC3
+
+[33mcommit 802d31018972bffb0439b544c00ac2c75b58ff9a[m
+Merge: 16077d9 ad07fbd
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Jun 23 22:50:37 2011 +0900
+
+    Merge branch 'central-0.2-develop' into central-0.2-release
+
+[33mcommit ad07fbdb3bc35b68251f6e6ab02dcb551d64c0bf[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Jun 23 22:28:57 2011 +0900
+
+    Modified archetype for refering jdbc.properties to
+    $ASAKUSA_HOME/bulkloader/conf (#19).
+
+[33mcommit 16077d9014ab07d5bf438acfac9032544a601c49[m
+Merge: 8f55756 af7c647
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Wed Jun 22 10:36:30 2011 +0900
+
+    Merge branch 'central-0.2-develop' into central-0.2-release
+
+[33mcommit af7c6473a0dd0811d1cde30df25f37a0650ab4b0[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue Jun 21 17:59:10 2011 +0900
+
+    fixed line feed code to build.properties.
+
+[33mcommit 442c071daf10ceae94791f3e4aede8d4012858a9[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue Jun 21 17:36:50 2011 +0900
+
+    fixed archetype structure for loading jdbc.properties.
+
+[33mcommit fbb64fbd91b218e6508b17985903da54eebb1370[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue Jun 21 11:55:19 2011 +0900
+
+    fixed line feed code and added compiler maxerror option.
+
+[33mcommit 8f557566f139d3826436aa74c5dbc91e69f43929[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jun 20 12:09:10 2011 +0900
+
+    Bumped version number to 0.2.0-RC1
+
+[33mcommit 41ebb877269be1516626c720a3742dced5c8720e[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jun 20 11:41:45 2011 +0900
+
+    changed pom.xml version for changing branch structure.
+
+[33mcommit 26d33c7d5d91af7192a9183a8b21af77692987cb[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Thu Jun 16 18:41:10 2011 +0900
+
+    fixed line feed code to java source.
+
+[33mcommit 29c5d8ca7e075205888fd7785109e62b00d20c59[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Wed Jun 15 20:46:09 2011 +0900
+
+    fixed archetype: enabeld failonerror property to calling java tasks in
+    asakusa-build.xml.
+
+[33mcommit b608fc2ed6efd38434810b70a9d259dd74379b80[m
+Author: shingo.furuyama <shingo.furuyama@nautilus-technologies.com>
+Date:   Sat Jun 11 15:00:47 2011 +0900
+
+    add import statement
+    
+    Change-Id: Ic3eaa047f4d57c40cea6df69853c5a7a91884ff8
+
+[33mcommit 54e932ca1a97b8421da77ddb7ef865670074e6f2[m
+Author: shingo.furuyama <shingo.furuyama@nautilus-technologies.com>
+Date:   Sat Jun 11 11:44:35 2011 +0900
+
+    remove testcase
+    
+    Change-Id: I362a1185c10533d4387be777f094a76e053eff16
+
+[33mcommit 404e88b5cb2abd027521aa0427d7d513be765ce8[m
+Author: shingo.furuyama <shingo.furuyama@nautilus-technologies.com>
+Date:   Sat Jun 11 11:34:43 2011 +0900
+
+    using extend operator.
+    
+    Change-Id: Ie3e77547870fccff090159278b6aa56060f3af9c
+
+[33mcommit a3cbd185a75ae3c03643b4aba6478e8e780dbb1c[m
+Author: shingo.furuyama <shingo.furuyama@nautilus-technologies.com>
+Date:   Tue Jun 7 17:05:30 2011 +0900
+
+    modify example-tutorial stub, use full testcase.
+
+[33mcommit 1f8291472867fbdc6c5bb71c159ddc6e73ea1b6a[m
+Author: shingo.furuyama <shingo.furuyama@nautilus-technologies.com>
+Date:   Tue Jun 7 16:56:24 2011 +0900
+
+    rename tuttorial stub project.
+
+[33mcommit 5ffcd168644ad0bde69d9c0d8a32f82b30ca717b[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Jun 6 19:23:03 2011 +0900
+
+    modified pom.xml: disabled testFailureIgnore option.
+
+[33mcommit f92affb21a8d9b290fd4340ac0aff8788892c8e1[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Mon Jun 6 02:05:50 2011 +0900
+
+    Change-Id: I222e84e942c103c57d46ad36aba7ab9e06997d91
+
+[33mcommit 6aabb3a404776393c345ce3a82d316a816042ea2[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Mon Jun 6 02:04:38 2011 +0900
+
+    modify test data.
+    
+    Change-Id: Ieac5df3460e6a6a90f214fbbf967a440d8427bd6
+
+[33mcommit f9dc3a8244034b796c4e12f413296d05d76ef1ec[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Mon Jun 6 01:37:01 2011 +0900
+
+    modify pom.xml
+    
+    Change-Id: Ie77f51e3455bd4f77ecc4af04ce20f9d523c2a74
+
+[33mcommit 229d5482f130dbcb57f8987f1777a71f4e4cb372[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Sun Jun 5 20:38:12 2011 +0900
+
+    add tutorial blank project.
+    
+    Change-Id: I5d967da75e33fef425fa13796f5326ae84b21da7
+
+[33mcommit 92da2fa77cf175e3d4e631e77885b3a2742cc92d[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Fri Jun 3 17:56:07 2011 +0900
+
+    added headless option to asakusa-build.xml
+
+[33mcommit df8d2937f196b2fcf17870aa7a9da7db8300ad27[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Wed Jun 1 20:53:27 2011 +0900
+
+    fixed build.proeprties.
+
+[33mcommit f74d1a9a2ff061def98e0a607ba38d91c15f3fef[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Wed Jun 1 20:29:28 2011 +0900
+
+    modified pom.xml for update latest mysql jdbc driver version.
+
+[33mcommit fe0a516bed20ca5f16a64bfa590173e5981dcf67[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Wed Jun 1 20:12:02 2011 +0900
+
+    modified for Asakusa 0.2 archetype.
+
+[33mcommit b0688e6ebb0a97a009314e063a676e9da3347bb2[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Wed Jun 1 19:23:55 2011 +0900
+
+    modified for Asakusa 0.2 archetype.
+
+[33mcommit e75284e90f8d9428645b20b893de8f23664c6d66[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue May 31 17:00:29 2011 +0900
+
+    modified for version 0.2
+
+[33mcommit 42955a99470af03bd15e7dbcd418444401b19252[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue May 31 16:45:41 2011 +0900
+
+    modified for version 0.2
+
+[33mcommit 439dea103b49a0bc044b5d80447b5c829d2e9aaf[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Thu May 26 00:48:46 2011 +0900
+
+    Add WordCount Example.
+    
+    Change-Id: Ib69eda5cd28e838e83a9f29963d20c20281e6c50
+
+[33mcommit c1cf4a2d680aba1a6c90ffa3f1d21d951a37f9f2[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Tue May 24 16:04:30 2011 +0900
+
+    add arguments description to run.
+
+[33mcommit 003c2d548d8535674cebfb05d3da39ff993470f3[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Tue May 24 15:54:25 2011 +0900
+
+    add basket analysis example
+
+[33mcommit 8fe3ea66685e0e5f10fbeadc802c98223058a416[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue May 3 13:47:31 2011 +0900
+
+    support CDH3u0
+
+[33mcommit c22adfa4c2a0263d1c4508e6f2ecea9f3c676643[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue Apr 26 12:45:07 2011 +0900
+
+    Modified for Asakusa Framework 0.2.0
+
+[33mcommit 0ad7e71129cde0f36163ef155ca4aba516684f45[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Tue Apr 26 11:33:10 2011 +0900
+
+    release asakusa-examples version 0.1.0
+
+[33mcommit 78d48010613f4e137a314a470c2248f1cba23656[m
+Author: KAWAGUCHI, Akira <akirakw@gmail.com>
+Date:   Mon Apr 25 16:15:52 2011 +0900
+
+    first commit of examples-aggregator.
+
+[33mcommit 6fc33ab5137bb3384fbd40fe119f1add83cc6cc5[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Sat Apr 23 21:37:31 2011 +0800
+
+    add example-business operator test case.
+
+[33mcommit 50637f42f5e0e800d305e924d3978ce9f1aee823[m
+Author: shingo.furuyama <shingo.furuyama@ulsystems.co.jp>
+Date:   Sat Apr 16 12:42:02 2011 +0800
+
+    add comment.
+
+[33mcommit 8a9768f56391c4bcaecdf16fa412c7af82c8d647[m
+Author: shingo.furuyama <shingo.furuyama@ulsystems.co.jp>
+Date:   Fri Apr 15 23:03:25 2011 +0800
+
+    add operator test case.
+
+[33mcommit ad5dbabb8cd7d3e053ff45bbca967acd610c81b1[m
+Author: shingo.furuyama <shingo.furuyama@ulsystems.co.jp>
+Date:   Fri Apr 15 21:45:49 2011 +0800
+
+    issues #3
+    'mvn test' fails if X window system is not available
+    
+    modify build script.
+
+[33mcommit 23dd70236a936e2690c23f66615bb36800ac3114[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Thu Mar 31 23:06:35 2011 +0900
+
+    modify models.sql database type.
+
+[33mcommit d64bf175967456313c0a54c422d8c6ce8030b8f0[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Thu Mar 31 13:58:45 2011 +0900
+
+    add project description.
+
+[33mcommit 923265e41a44f61114fa29a98037bb62ea8dec65[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Thu Mar 31 13:40:33 2011 +0900
+
+    first commit for examples.
+
+[33mcommit 5d0afe4a88c5b711126bde7d6ad13afff821bba8[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Thu Mar 31 13:39:06 2011 +0900
+
+    first commit for examples.
+
+[33mcommit 1c0e2528f033ee6bfca70b43e8e50bcda3ba3c45[m
+Author: shingo furuyama <marblejenka@gmail.com>
+Date:   Thu Mar 31 13:32:20 2011 +0900
+
+    first commit
