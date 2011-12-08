@@ -30,6 +30,6 @@ public class ErrorRecordToCsv extends AbstractErrorRecordCsvExporterDescription 
 
     @Override
     public String getPath() {
-        return "result/category-${date}.csv";
+        return "result/error-${date}.csv";
     }
 }

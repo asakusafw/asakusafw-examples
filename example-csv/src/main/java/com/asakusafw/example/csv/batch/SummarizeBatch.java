@@ -22,8 +22,8 @@ import com.asakusafw.vocabulary.batch.BatchDescription;
 /**
  * 売上の集計を計算する。
  */
-@Batch(name = "summarize")
-public class SummaryBatch extends BatchDescription {
+@Batch(name = "example.summarizeSales")
+public class SummarizeBatch extends BatchDescription {
 
     @Override
     protected void describe() {

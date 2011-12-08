@@ -30,6 +30,6 @@ public class CategorySummaryToCsv extends AbstractCategorySummaryCsvExporterDesc
 
     @Override
     public String getPath() {
-        return "result/error-${date}.csv";
+        return "result/category-${date}.csv";
     }
 }
