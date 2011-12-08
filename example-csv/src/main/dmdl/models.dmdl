@@ -60,10 +60,6 @@ item_info = {
     @windgate.csv.field(name = "カテゴリ名")
     category_name : TEXT;
 
-    "商品原価"
-    @windgate.csv.field(name = "原価")
-    net_price : INT;
-
     "商品売価"
     @windgate.csv.field(name = "売価")
     selling_price : INT;
@@ -87,7 +83,6 @@ joined joined_sales_info
 + item_info -> {
     item_code -> item_code;
     category_name -> category_name;
-    net_price -> net_price;
     selling_price -> selling_price;
 } % item_code;
 
@@ -105,9 +100,6 @@ summarized category_summary = joined_sales_info => {
 
     @windgate.csv.field(name = "総商品数")
     count category_name -> item_count;
-
-    @windgate.csv.field(name = "原価合計")
-    sum net_price -> net_price_total;
 
     @windgate.csv.field(name = "売価合計")
     sum selling_price -> selling_price_total;
