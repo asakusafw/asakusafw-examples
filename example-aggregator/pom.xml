@@ -18,6 +18,7 @@
 	</licenses>
 
 	<modules>
+		<module>../example-csv</module>
 		<module>../example-business</module>
 		<module>../example-tutorial</module>
 		<module>../example-basketanalysis</module>
