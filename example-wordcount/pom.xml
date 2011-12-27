@@ -41,7 +41,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<asakusa.compiler.options></asakusa.compiler.options>
+				<asakusa.compiler.options>XMAPREDUCE-370=enabled</asakusa.compiler.options>
 			</properties>
 		</profile>
 	</profiles>
