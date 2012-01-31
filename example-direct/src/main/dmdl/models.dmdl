@@ -1,0 +1,10 @@
+document = {
+    name : TEXT;
+    content : TEXT;
+};
+
+word = {
+    string : TEXT;
+    frequency : INT;
+};
+

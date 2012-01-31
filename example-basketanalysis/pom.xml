@@ -4,7 +4,7 @@
 	<name>Asakusa Framework BasketAnalysis Example</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>example-basketanalysis</artifactId>
-	<version>0.2.4</version>
+	<version>0.2.5</version>
 
 	<url>http://asakusafw.com</url>
 	<licenses>
@@ -16,9 +16,9 @@
 	</licenses>
 
 	<properties>
-		<asakusafw.version>0.2.4</asakusafw.version>
+		<asakusafw.version>0.2.5</asakusafw.version>
 
-		<cloudera.cdh.version>0.20.2-cdh3u2</cloudera.cdh.version>
+		<hadoop.version>0.20.2-cdh3u2</hadoop.version>
 		<mysql.jdbc.version>5.1.16</mysql.jdbc.version>
 		<ashigeru.lang.version>0.1.0</ashigeru.lang.version>
 		<ashigeru.util.version>0.1.0</ashigeru.util.version>
@@ -41,7 +41,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<asakusa.compiler.options></asakusa.compiler.options>
+				<asakusa.compiler.options>XMAPREDUCE-370=enabled</asakusa.compiler.options>
 			</properties>
 		</profile>
 	</profiles>
@@ -379,57 +379,24 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 							<pluginExecutions>
 								<pluginExecution>
 									<pluginExecutionFilter>
-										<groupId>
-											org.apache.maven.plugins
-										</groupId>
-										<artifactId>
-											maven-antrun-plugin
-										</artifactId>
-										<versionRange>
-											[1.6,)
-										</versionRange>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>properties-maven-plugin</artifactId>
+										<versionRange>[1.0-alpha-2,)</versionRange>
+										<goals>
+											<goal>read-project-properties</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-antrun-plugin</artifactId>
+										<versionRange>[1.6,)</versionRange>
 										<goals>
 											<goal>run</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											build-helper-maven-plugin
-										</artifactId>
-										<versionRange>
-											[1.5,)
-										</versionRange>
-										<goals>
-											<goal>add-source</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											org.codehaus.mojo
-										</groupId>
-										<artifactId>
-											properties-maven-plugin
-										</artifactId>
-										<versionRange>
-											[1.0-alpha-2,)
-										</versionRange>
-										<goals>
-											<goal>
-												read-project-properties
-											</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
@@ -448,7 +415,7 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-core</artifactId>
-			<version>${cloudera.cdh.version}</version>
+			<version>${hadoop.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -484,6 +451,32 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 			<version>${asakusafw.version}</version>
 			<scope>test</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.asakusafw</groupId>
+			<artifactId>asakusa-directio-vocabulary</artifactId>
+			<version>${asakusafw.version}</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.asakusafw</groupId>
+			<artifactId>asakusa-directio-dmdl</artifactId>
+			<version>${asakusafw.version}</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.asakusafw</groupId>
+			<artifactId>asakusa-directio-plugin</artifactId>
+			<version>${asakusafw.version}</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.asakusafw</groupId>
+			<artifactId>asakusa-directio-test-moderator</artifactId>
+			<version>${asakusafw.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.asakusafw</groupId>
