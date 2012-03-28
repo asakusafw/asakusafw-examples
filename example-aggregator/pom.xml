@@ -24,6 +24,7 @@
 		<module>../example-basketanalysis</module>
 		<module>../example-wordcount</module>
 		<module>../example-clob</module>
+		<module>../example-direct</module>
 	</modules>
 
 	<build>
