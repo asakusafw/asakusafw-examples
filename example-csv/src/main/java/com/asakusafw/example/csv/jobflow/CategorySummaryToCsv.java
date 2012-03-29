@@ -19,7 +19,7 @@ import com.asakusafw.example.csv.modelgen.dmdl.csv.AbstractCategorySummaryCsvExp
 
 /**
  * カテゴリ別集計結果をWindGate/CSVでエクスポートする。
- * エクスポート対象ファイルは {@code result/error-<date:日付>.csv}。
+ * エクスポート対象ファイルは {@code result/category-<date:日付>.csv}。
  */
 public class CategorySummaryToCsv extends AbstractCategorySummaryCsvExporterDescription {
 
