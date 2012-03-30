@@ -292,6 +292,14 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 										<include name="**/*.sh" />
 									</fileset>
 								</chmod>
+								<!-- project-specific settings -->
+								<dependencyfilesets prefix="mydeps." />
+								<copy todir="${env.ASAKUSA_HOME}/windgate/plugin">
+									<fileset refid="mydeps.postgresql:postgresql:jar" />
+								</copy>
+								<replace
+									file="${env.ASAKUSA_HOME}/windgate/profile/asakusa.properties"
+									token="#resource.jdbc" value="resource.jdbc" />
 							</target>
 						</configuration>
 					</execution>
@@ -310,6 +318,8 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 						<configuration>
 							<files>
 								<file>build.properties</file>
+								<!-- project-specific settings -->
+								<file>${env.ASAKUSA_HOME}/windgate/profile/asakusa.properties</file>
 							</files>
 						</configuration>
 					</execution>
@@ -332,6 +342,40 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 								<descriptor>src/main/assembly/prod-cleaner-complement-lib.xml</descriptor>
 							</descriptors>
 							<finalName>asakusafw-${asakusafw.version}</finalName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- project-specific settings -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sql-maven-plugin</artifactId>
+				<version>1.5</version>
+				<dependencies>
+					<dependency>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+						<version>${postgresql.version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<driver>${resource.jdbc.driver}</driver>
+					<url>${resource.jdbc.url}</url>
+					<username>${resource.jdbc.user}</username>
+					<password>${resource.jdbc.password}</password>
+				</configuration>
+				<executions>
+					<execution>
+						<id>create-schema</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<autocommit>true</autocommit>
+							<srcFiles>
+								<srcFile>src/main/sql/model_ddl.sql</srcFile>
+							</srcFiles>
 						</configuration>
 					</execution>
 				</executions>
