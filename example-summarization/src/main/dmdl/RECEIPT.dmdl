@@ -1,0 +1,44 @@
+"レシートデータ"
+@directio.csv(
+    charset = "UTF-8",
+    has_header = TRUE
+)
+receipt = {
+
+    "店番号"
+    @directio.csv.field(name = "店番号")
+    shop_code : INT;
+
+    "店舗名"
+    @directio.csv.field(name = "店舗名")
+    shop_name : TEXT;
+
+    "発行日"
+    @directio.csv.field(name = "発行日")
+    issue_date : DATETIME;
+
+    "レシートID"
+    @directio.csv.field(name = "レシートID")
+    receipt_id : INT;
+
+    "行番号"
+    @directio.csv.field(name = "行番号")
+    line_number : INT;
+
+    "JANコード"
+    @directio.csv.field(name = "JANコード")
+    jan_code : LONG;
+
+    "売価単価"
+    @directio.csv.field(name = "売価単価")
+    unit_salling_price : INT;
+
+    "販売数量"
+    @directio.csv.field(name = "販売数量")
+    unit_sales : INT;
+
+    "販売金額"
+    @directio.csv.field(name = "販売金額")
+    selling_price : INT;
+
+};

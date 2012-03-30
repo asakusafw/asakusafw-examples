@@ -1,0 +1,7 @@
+"集計元データ"
+all_values = joined_receipt + {
+
+    "客数"
+    customers : INT;
+
+};

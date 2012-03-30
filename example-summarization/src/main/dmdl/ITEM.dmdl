@@ -1,0 +1,24 @@
+"商品マスタ"
+@directio.csv(
+    charset = "UTF-8",
+    has_header = TRUE
+)
+item = {
+
+    "商品コード"
+    @directio.csv.field(name = "商品コード")
+    gtin : LONG;
+
+    "商品名"
+    @directio.csv.field(name = "商品名")
+    item_name : TEXT;
+
+    "商品分類コード"
+    @directio.csv.field(name = "商品分類コード")
+    category_code : INT;
+
+    "商品分類名"
+    @directio.csv.field(name = "商品分類名")
+    category_name : TEXT;
+
+};

@@ -1,0 +1,2 @@
+"商品マスタ+レシートデータ"
+joined joined_receipt = item % gtin + receipt % jan_code ;

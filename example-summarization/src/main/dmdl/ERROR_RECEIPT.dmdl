@@ -1,0 +1,12 @@
+"エラーレシートデータ"
+@directio.csv(
+    charset = "UTF-8",
+    has_header = TRUE
+)
+error_receipt = receipt + {
+
+    "エラーメッセージ"
+    @directio.csv.field(name = "エラーメッセージ")
+    error_message : TEXT;
+
+};
