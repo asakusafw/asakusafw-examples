@@ -150,7 +150,9 @@
 						<exclude>com.asakusafw:asakusa-windgate-jdbc</exclude>
 						<exclude>com.asakusafw:asakusa-windgate-stream</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-bootstrap</exclude>
+						<exclude>com.asakusafw:asakusa-yaess-flowlog</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-jsch</exclude>
+						<exclude>com.asakusafw:asakusa-yaess-multidispatch</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-paralleljob</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-tools</exclude>
 						<exclude>mysql:mysql-connector-java</exclude>
@@ -326,7 +328,7 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 						<configuration>
 							<descriptors>
 								<descriptor>src/main/assembly/dev-complement-lib.xml</descriptor>
-								<descriptor>src/main/assembly/prod-windgate-complement-lib.xml</descriptor>
+								<descriptor>src/main/assembly/prod-directio-complement-lib.xml</descriptor>
 								<descriptor>src/main/assembly/prod-cleaner-complement-lib.xml</descriptor>
 							</descriptors>
 							<finalName>asakusafw-${asakusafw.version}</finalName>
@@ -337,7 +339,7 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -454,26 +456,6 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 		</dependency>
 		<dependency>
 			<groupId>com.asakusafw</groupId>
-			<artifactId>asakusa-windgate-vocabulary</artifactId>
-			<version>${asakusafw.version}</version>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.asakusafw</groupId>
-			<artifactId>asakusa-windgate-dmdl</artifactId>
-			<version>${asakusafw.version}</version>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.asakusafw</groupId>
-			<artifactId>asakusa-windgate-plugin</artifactId>
-			<version>${asakusafw.version}</version>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.asakusafw</groupId>
 			<artifactId>asakusa-distribution</artifactId>
 			<version>${asakusafw.version}</version>
 			<classifier>dev-exclude-lib</classifier>
@@ -483,7 +465,7 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 			<groupId>com.asakusafw</groupId>
 			<artifactId>asakusa-distribution</artifactId>
 			<version>${asakusafw.version}</version>
-			<classifier>prod-windgate-exclude-lib</classifier>
+			<classifier>prod-directio-exclude-lib</classifier>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -491,12 +473,6 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 			<artifactId>asakusa-distribution</artifactId>
 			<version>${asakusafw.version}</version>
 			<classifier>prod-cleaner-exclude-lib</classifier>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.asakusafw</groupId>
-			<artifactId>asakusa-windgate-test-moderator</artifactId>
-			<version>${asakusafw.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
