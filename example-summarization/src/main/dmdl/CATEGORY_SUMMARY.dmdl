@@ -1,0 +1,16 @@
+"カテゴリ別集計データ"
+@directio.csv(
+    charset = "UTF-8",
+    has_header = TRUE
+)
+category_summary =  {
+
+    "商品分類コード"
+    @directio.csv.field(name = "商品分類コード")
+    category_code : INT;
+
+    "商品分類名"
+    @directio.csv.field(name = "商品分類名")
+    category_name : TEXT;
+
+} + summary_values;

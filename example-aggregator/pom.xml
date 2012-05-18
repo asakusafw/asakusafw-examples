@@ -25,6 +25,9 @@
 		<module>../example-wordcount</module>
 		<module>../example-clob</module>
 		<module>../example-direct</module>
+		<module>../example-jdbc</module>
+		<module>../example-summarization</module>
+		<module>../example-seqfile</module>
 	</modules>
 
 	<build>
