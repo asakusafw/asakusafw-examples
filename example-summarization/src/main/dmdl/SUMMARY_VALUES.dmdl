@@ -1,0 +1,16 @@
+"集計する値"
+summary_values = {
+
+    "販売数量"
+    @directio.csv.field(name = "販売数量")
+    unit_sales : INT;
+
+    "販売金額"
+    @directio.csv.field(name = "販売金額")
+    selling_price : INT;
+
+    "客数"
+    @directio.csv.field(name = "客数")
+    customers : INT;
+
+};

@@ -1,0 +1,16 @@
+"単品集計データ"
+@directio.csv(
+    charset = "UTF-8",
+    has_header = TRUE
+)
+item_summary = {
+
+    "JANコード"
+    @directio.csv.field(name = "JANコード")
+    jan_code : LONG;
+
+    "商品名"
+    @directio.csv.field(name = "商品名")
+    item_name : TEXT;
+
+} + summary_values;

@@ -1,0 +1,16 @@
+"店舗別集計データ"
+@directio.csv(
+    charset = "UTF-8",
+    has_header = TRUE
+)
+shop_summary = {
+
+    "店番号"
+    @directio.csv.field(name = "店番号")
+    shop_code : INT;
+
+    "店舗名"
+    @directio.csv.field(name = "店舗名")
+    shop_name : TEXT;
+
+} + summary_values;

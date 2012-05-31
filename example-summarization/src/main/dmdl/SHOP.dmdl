@@ -1,0 +1,16 @@
+"店舗マスタ"
+@directio.csv(
+    charset = "UTF-8",
+    has_header = TRUE
+)
+shop = {
+
+    "店番号"
+    @directio.csv.field(name = "店番号")
+    shop_code : INT;
+
+    "店舗名"
+    @directio.csv.field(name = "店舗名")
+    shop_name : TEXT;
+
+};
