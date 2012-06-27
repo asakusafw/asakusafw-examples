@@ -542,11 +542,6 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 		</dependency>
 		<dependency>
 			<groupId>com.asakusafw</groupId>
-			<artifactId>asakusa-yaess-plugin</artifactId>
-			<version>${asakusafw.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.asakusafw</groupId>
 			<artifactId>asakusa-distribution</artifactId>
 			<version>${asakusafw.version}</version>
 			<scope>test</scope>
