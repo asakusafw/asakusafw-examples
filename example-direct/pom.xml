@@ -161,15 +161,17 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>${plugin.eclipse.version}</version>
 				<configuration>
-					<useProjectReferences>false</useProjectReferences>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>false</downloadJavadocs>
 					<classpathContainers>
 						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</classpathContainer>
 					</classpathContainers>
 					<excludes>
-						<exclude>com.asakusafw:asakusa-distribution</exclude>
 						<exclude>com.asakusafw:asakusa-cleaner</exclude>
+						<exclude>com.asakusafw:asakusa-runtime-all</exclude>
+						<exclude>com.asakusafw:asakusa-directio-tools</exclude>
+						<exclude>com.asakusafw:asakusa-distribution</exclude>
+						<exclude>com.asakusafw:asakusa-operation-tools</exclude>
 						<exclude>com.asakusafw:asakusa-thundergate</exclude>
 						<exclude>com.asakusafw:asakusa-thundergate-dmdl</exclude>
 						<exclude>com.asakusafw:asakusa-thundergate-plugin</exclude>
@@ -184,6 +186,7 @@
 						<exclude>com.asakusafw:asakusa-windgate-stream</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-bootstrap</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-flowlog</exclude>
+						<exclude>com.asakusafw:asakusa-yaess-jobqueue</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-jsch</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-multidispatch</exclude>
 						<exclude>com.asakusafw:asakusa-yaess-paralleljob</exclude>
@@ -260,10 +263,11 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 				<version>${plugin.antrun.version}</version>
 				<executions>
 					<execution>
-						<id>modelgen</id>
+						<id>asakusa-generate-sources</id>
 						<phase>generate-sources</phase>
 						<configuration>
 							<target>
+								<mkdir dir="target/generated-sources/annotations" />
 								<property name="compile_classpath" refid="maven.test.classpath" />
 								<ant antfile="${asakusa.build.antfile}">
 									<target name="generate-model" />
@@ -275,7 +279,7 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 						</goals>
 					</execution>
 					<execution>
-						<id>batch:compile:all</id>
+						<id>asakusa-package</id>
 						<phase>package</phase>
 						<configuration>
 							<target>
