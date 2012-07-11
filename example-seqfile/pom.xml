@@ -365,6 +365,33 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<id>asakusa-pre-integration-test</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${basedir}/src/test/example-scripts/deploy-batchapp.sh</executable>
+						</configuration>
+					</execution>
+					<execution>
+						<id>asakusa-integration-test</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${basedir}/src/test/example-scripts/run-batchapp.sh</executable>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
