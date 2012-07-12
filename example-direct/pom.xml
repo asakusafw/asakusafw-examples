@@ -45,6 +45,12 @@
 				<asakusa.compiler.options>XMAPREDUCE-370=enabled</asakusa.compiler.options>
 			</properties>
 		</profile>
+		<profile>
+			<id>skip-test</id>
+			<properties>
+				<maven.test.skip>true</maven.test.skip>
+			</properties>
+		</profile>
 	</profiles>
 
 	<packaging>jar</packaging>
