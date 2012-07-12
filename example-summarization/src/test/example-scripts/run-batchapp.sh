@@ -14,11 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+$ASAKUSA_HOME/directio/bin/list-file.sh "/" "**"
 $ASAKUSA_HOME/yaess/bin/yaess-batch.sh example.summarization -A FROM_ISSUE_DATE=20120101 -A TO_ISSUE_DATE=20120131
+$ASAKUSA_HOME/directio/bin/list-file.sh "/" "**"
 
 cd $HOME
-hadoop fs -text target/testing/directio/result/item/*
-hadoop fs -text target/testing/directio/result/category/*
-hadoop fs -text target/testing/directio/result/shop/*
-hadoop fs -text target/testing/directio/result/error/*
+hadoop fs -text "target/testing/directio/result/item/*"
+hadoop fs -text "target/testing/directio/result/category/*"
+hadoop fs -text "target/testing/directio/result/shop/*"
+hadoop fs -text "target/testing/directio/result/error/*"
 

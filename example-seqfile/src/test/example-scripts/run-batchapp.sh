@@ -14,8 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+$ASAKUSA_HOME/directio/bin/list-file.sh "/" "**"
 $ASAKUSA_HOME/yaess/bin/yaess-batch.sh example.summarizeSales -A date=2011-04-01
+$ASAKUSA_HOME/directio/bin/list-file.sh "/" "**"
 
 cd $HOME
-hadoop fs -libjars "$ASAKUSA_HOME/batchapps/example.summarizeSales/lib/jobflow-byCategory.jar,$ASAKUSA_HOME/core/lib/asakusa-runtime-all.jar" -text target/testing/directio/result/category/result.dat
+hadoop fs -libjars "$ASAKUSA_HOME/batchapps/example.summarizeSales/lib/jobflow-byCategory.jar,$ASAKUSA_HOME/core/lib/asakusa-runtime-all.jar" -text "target/testing/directio/result/category/result.dat"
 

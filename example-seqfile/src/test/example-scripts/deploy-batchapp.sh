@@ -33,11 +33,8 @@ rm "$ASAKUSA_HOME"/batchapps/* -fr
 cp -pr target/batchc/* "$ASAKUSA_HOME"/batchapps
 
 PROJECT_PATH=$PWD
+$ASAKUSA_HOME/directio/bin/delete-file.sh -r "/" "*"
 cd $HOME
-set +e
-rm target/testing/directio -fr
-hadoop fs -rmr target/testing/directio
-set -e
 hadoop fs -put "$PROJECT_PATH"/src/test/example-dataset/master target/testing/directio/master
 hadoop fs -put "$PROJECT_PATH"/src/test/example-dataset/sales target/testing/directio/sales
-
+$ASAKUSA_HOME/directio/bin/list-file.sh "/" "**"
