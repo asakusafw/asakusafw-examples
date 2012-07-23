@@ -44,7 +44,7 @@
 
 	<profiles>
 		<profile>
-			<id>asakusa-batchapp-defalut-profile</id>
+			<id>asakusa-batchapp-default-profile</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
