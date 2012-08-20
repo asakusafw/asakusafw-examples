@@ -66,4 +66,23 @@ public class StockJobTest {
         FlowDescription flowPart = new StockJob(shipmentIn, stockIn, shipmentOut, stockOut);
         tester.runTest(flowPart);
     }
+
+    /**
+     * サンプル：テストデータをJSONで定義。
+     */
+    @Test
+    public void testExampleWithJson() {
+        JobFlowTester tester = new JobFlowTester(getClass());
+        tester.input("shipment", Shipment.class)
+            .prepare("shipment_input.json");
+        tester.input("stock", Stock.class)
+            .prepare("stock.xls#input");
+        tester.output("shipment", Shipment.class)
+            .verify("shipment_output.json", "shipment.xls#rule");
+        tester.output("stock", Stock.class)
+            .verify("stock.xls#output", "stock.xls#rule");
+
+        tester.runTest(StockJob.class);
+    }
+
 }
