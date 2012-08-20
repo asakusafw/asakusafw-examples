@@ -40,7 +40,7 @@ public abstract class StockOp {
     public ShipmentStatus checkShipment(Shipment shipment) {
         // 出荷時刻が設定されていない
         if (shipment.getShippedDateOption().isNull()) {
-            return ShipmentStatus.NOT_SHIPMENTPED;
+            return ShipmentStatus.NOT_SHIPPED;
         }
         // 原価が設定されていない
         if (shipment.getCostOption().isNull()) {
@@ -58,7 +58,7 @@ public abstract class StockOp {
         /**
          * 未出荷。
          */
-        NOT_SHIPMENTPED,
+        NOT_SHIPPED,
         
         /**
          * 出荷済みだが原価不明。
