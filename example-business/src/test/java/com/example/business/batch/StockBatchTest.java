@@ -17,22 +17,31 @@ package com.example.business.batch;
 
 import org.junit.Test;
 
-import com.asakusafw.testdriver.BatchTestDriver;
+import com.asakusafw.testdriver.BatchTester;
+import com.example.business.modelgen.table.model.Shipment;
+import com.example.business.modelgen.table.model.Stock;
 
 /**
  * サンプル：バッチのテストクラス
  */
 public class StockBatchTest {
-    
+
     /**
      * サンプル：バッチの実行
      * @throws Throwable テストに失敗した場合
-     */        
+     */
     @Test
     public void testExample() throws Throwable {
-        
-        BatchTestDriver driver = new BatchTestDriver();
-        driver.runTest(StockBatch.class);
-        
+        BatchTester tester = new BatchTester(getClass());
+        tester.jobflow("stock").input("shipment", Shipment.class)
+            .prepare("shipment.xls#input");
+        tester.jobflow("stock").input("stock", Stock.class)
+            .prepare("stock.xls#input");
+        tester.jobflow("stock").output("shipment", Shipment.class)
+            .verify("shipment.xls#output", "shipment.xls#rule");
+        tester.jobflow("stock").output("stock", Stock.class)
+            .verify("stock.xls#output", "stock.xls#rule");
+
+        tester.runTest(StockBatch.class);
     }
 }
