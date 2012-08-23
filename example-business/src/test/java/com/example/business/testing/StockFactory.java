@@ -20,33 +20,33 @@ import com.example.business.modelgen.table.model.Stock;
 
 /**
  * 在庫のファクトリ
- * 
  * @author shingo.furuyama
- * 
  */
 public class StockFactory {
-	private StockFactory() {
-	}
 
-	/**
-	 * {@link Stock}のインスタンスを生成して返します
-	 * 
-	 * @param purchasedDate
-	 *            購買日付
-	 * @param itemCode
-	 *            明細コード
-	 * @param cost
-	 *            コスト
-	 * @param quantity
-	 *            　数量
-	 * @return {@link Stock}のインスタンス
-	 */
-	public static Stock create(DateTime purchasedDate, long itemCode, int cost, int quantity) {
-		Stock result = new Stock();
-		result.setPurchasedDate(purchasedDate);
-		result.setItemCode(itemCode);
-		result.setCost(cost);
-		result.setQuantity(quantity);
-		return result;
-	}
+    private StockFactory() {
+        return;
+    }
+
+    /**
+     * {@link Stock}のインスタンスを生成して返します
+     *
+     * @param purchasedDate
+     *            購買日付
+     * @param itemCode
+     *            明細コード
+     * @param cost
+     *            コスト
+     * @param quantity
+     *            　数量
+     * @return {@link Stock}のインスタンス
+     */
+    public static Stock create(DateTime purchasedDate, long itemCode, int cost, int quantity) {
+        Stock result = new Stock();
+        result.setPurchasedDate(purchasedDate);
+        result.setItemCode(itemCode);
+        result.setCost(cost);
+        result.setQuantity(quantity);
+        return result;
+    }
 }

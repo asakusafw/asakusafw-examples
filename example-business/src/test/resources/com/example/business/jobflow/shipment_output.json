@@ -1,0 +1,55 @@
+{
+    "sid": 1,
+    "shipped_date": "2010-12-01 12:00:00",
+    "item_code": 1,
+    "cost": 100
+}
+{
+    "sid": 2,
+    "shipped_date": "2010-12-01 12:00:00",
+    "item_code": 2,
+    "cost": 200
+    
+}
+{
+    "sid": 3,
+    "shipped_date": "2010-12-01 12:02:00",
+    "item_code": 2
+}
+{
+    "sid": 4,
+    "shipped_date": "2010-12-01 12:01:00",
+    "item_code": 2,
+    "cost": 200
+    
+}
+{
+    "sid": 5,
+    "shipped_date": "2010-12-01 12:00:00",
+    "item_code": 3,
+    "cost": 301
+    
+}
+{
+    "sid": 6,
+    "shipped_date": "2010-12-01 12:01:00",
+    "item_code": 3,
+    "cost": 301
+}
+{
+    "sid": 7,
+    "shipped_date": "2010-12-01 12:02:00",
+    "item_code": 3,
+    "cost": 300
+}
+{
+    "sid": 8,
+    "shipped_date": "2010-12-01 12:03:00",
+    "item_code": 3,
+    "cost": 300
+}
+{
+    "sid": 9,
+    "shipped_date": "2010-12-01 12:00:00",
+    "item_code": 999
+}

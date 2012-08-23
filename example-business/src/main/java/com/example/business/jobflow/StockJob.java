@@ -36,11 +36,11 @@ import com.example.business.operator.StockOpFactory.Cutoff;
 public class StockJob extends FlowDescription {
 
     private In<Shipment> shipmentIn;
-    
+
     private In<Stock> stockIn;
-    
+
     private Out<Shipment> shipmentOut;
-    
+
     private Out<Stock> stockOut;
 
     /**
@@ -69,15 +69,15 @@ public class StockJob extends FlowDescription {
     protected void describe() {
         CoreOperatorFactory core = new CoreOperatorFactory();
         StockOpFactory op = new StockOpFactory();
-        
+
         // 処理できない注文をあらかじめフィルタリング
         CheckShipment check = op.checkShipment(shipmentIn);
-        core.stop(check.notShipmentped);
+        core.stop(check.notShipped);
         core.stop(check.completed);
-        
+
         // 在庫引当を行う
         Cutoff cutoff = op.cutoff(stockIn, check.costUnknown);
-        
+
         // 結果を書き出す
         shipmentOut.add(cutoff.newShipments);
         stockOut.add(cutoff.newStocks);
