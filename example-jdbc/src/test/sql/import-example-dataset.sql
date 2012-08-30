@@ -8,7 +8,7 @@
 /***************************************************/
 TRUNCATE TABLE SALES_DETAIL;
 COPY SALES_DETAIL(
-    SALES_DETAIL_TIME
+     SALES_DATE_TIME
     ,STORE_CODE
     ,ITEM_CODE
     ,AMOUNT

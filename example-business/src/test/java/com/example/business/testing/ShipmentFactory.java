@@ -20,30 +20,30 @@ import com.example.business.modelgen.table.model.Shipment;
 
 /**
  * 出荷明細のファクトリ
- * 
  * @author shingo.furuyama
- * 
  */
 public class ShipmentFactory {
-	private ShipmentFactory() {
-	}
 
-	/**
-	 * {@link Shipment}のインスタンスを生成して返します
-	 * 
-	 * @param shippedDate
-	 *            出荷日付
-	 * @param itemCode
-	 *            　商品コード
-	 * @param cost
-	 *            コスト
-	 * @return {@link Shipment}のインスタンス
-	 */
-	public static Shipment create(DateTime shippedDate, long itemCode, int cost) {
-		Shipment result = new Shipment();
-		result.setShippedDate(shippedDate);
-		result.setItemCode(itemCode);
-		result.setCost(cost);
-		return result;
-	}
+    private ShipmentFactory() {
+        return;
+    }
+
+    /**
+     * {@link Shipment}のインスタンスを生成して返します
+     *
+     * @param shippedDate
+     *            出荷日付
+     * @param itemCode
+     *            　商品コード
+     * @param cost
+     *            コスト
+     * @return {@link Shipment}のインスタンス
+     */
+    public static Shipment create(DateTime shippedDate, long itemCode, int cost) {
+        Shipment result = new Shipment();
+        result.setShippedDate(shippedDate);
+        result.setItemCode(itemCode);
+        result.setCost(cost);
+        return result;
+    }
 }

@@ -7,7 +7,7 @@
 sales_detail = {
 
     "売上日時"
-    @windgate.jdbc.column(name = "SALES_DETAIL_TIME")
+    @windgate.jdbc.column(name = "SALES_DATE_TIME")
     sales_date_time : DATETIME;
 
     "店舗コード"
@@ -133,7 +133,7 @@ summarized category_summary = joined_sales_info => {
 error_record = {
 
     "売上日時"
-    @windgate.jdbc.column(name = "SALES_DETAIL_TIME")
+    @windgate.jdbc.column(name = "SALES_DATE_TIME")
     sales_date_time : DATETIME;
 
     "店舗コード"

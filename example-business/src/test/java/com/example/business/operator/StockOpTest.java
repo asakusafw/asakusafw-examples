@@ -19,10 +19,12 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
 
+import com.asakusafw.runtime.core.Result;
 import com.asakusafw.runtime.testing.MockResult;
 import com.asakusafw.runtime.value.DateTime;
 import com.example.business.modelgen.table.model.Shipment;
@@ -32,98 +34,109 @@ import com.example.business.testing.ShipmentFactory;
 import com.example.business.testing.StockFactory;
 
 /**
- * サンプル：在庫引当演算子のテストケース
- * 
- * test cases for stock operator.
- * 
+ * サンプル：在庫引当演算子のテストケース。
  * @author shingo.furuyama
- * 
  */
 public class StockOpTest {
 
-	@Test
-	public void testCheckShipment_notShipped() {
-		StockOpImpl operator = new StockOpImpl();
-		Shipment shipment = new Shipment();
+    /**
+     * {@link StockOp#checkShipment(Shipment)} returns NOT_SHIPPED.
+     */
+    @Test
+    public void testCheckShipment_notShipped() {
+        StockOpImpl operator = new StockOpImpl();
+        Shipment shipment = new Shipment();
 
-		ShipmentStatus actual = operator.checkShipment(shipment);
+        ShipmentStatus actual = operator.checkShipment(shipment);
 
-		assertThat(actual, is(ShipmentStatus.NOT_SHIPMENTPED));
-	}
+        assertThat(actual, is(ShipmentStatus.NOT_SHIPPED));
+    }
 
-	@Test
-	public void testCheckShipment_costUnKnown() {
-		StockOpImpl operator = new StockOpImpl();
-		Shipment shipment = new Shipment();
-		shipment.setShippedDate(new DateTime());
+    /**
+     * {@link StockOp#checkShipment(Shipment)} returns COST_UNKNOWN.
+     */
+    @Test
+    public void testCheckShipment_costUnKnown() {
+        StockOpImpl operator = new StockOpImpl();
+        Shipment shipment = new Shipment();
+        shipment.setShippedDate(new DateTime());
 
-		ShipmentStatus actual = operator.checkShipment(shipment);
+        ShipmentStatus actual = operator.checkShipment(shipment);
 
-		assertThat(actual, is(ShipmentStatus.COST_UNKNOWN));
-	}
+        assertThat(actual, is(ShipmentStatus.COST_UNKNOWN));
+    }
 
-	@Test
-	public void testCheckShipment_shipped() {
-		StockOpImpl operator = new StockOpImpl();
-		Shipment shipment = new Shipment();
-		shipment.setShippedDate(new DateTime());
-		shipment.setCost(100);
+    /**
+     * {@link StockOp#checkShipment(Shipment)} returns COMPLETED.
+     */
+    @Test
+    public void testCheckShipment_shipped() {
+        StockOpImpl operator = new StockOpImpl();
+        Shipment shipment = new Shipment();
+        shipment.setShippedDate(new DateTime());
+        shipment.setCost(100);
 
-		ShipmentStatus actual = operator.checkShipment(shipment);
+        ShipmentStatus actual = operator.checkShipment(shipment);
 
-		assertThat(actual, is(ShipmentStatus.COMPLETED));
-	}
+        assertThat(actual, is(ShipmentStatus.COMPLETED));
+    }
 
-	@Test
-	public void testCutoff() {
-		StockOpImpl operator = new StockOpImpl();
+    /**
+     * {@link StockOp#cutoff(List, List, Result, Result)}.
+     */
+    @Test
+    public void testCutoff() {
+        StockOpImpl operator = new StockOpImpl();
 
-		List<Stock> stocks = new ArrayList<Stock>();
-		stocks.add(StockFactory.create(new DateTime(), 0, 100, 10));
+        List<Stock> stocks = new ArrayList<Stock>();
+        stocks.add(StockFactory.create(new DateTime(), 0, 100, 10));
 
-		List<Shipment> shipments = new ArrayList<Shipment>();
-		shipments.add(ShipmentFactory.create(new DateTime(), 10, 100));
-		
-		
-		MockResult<Stock> newStocks = new MockResult<Stock>();
-		MockResult<Shipment> newShipments = new MockResult<Shipment>();
+        List<Shipment> shipments = new ArrayList<Shipment>();
+        shipments.add(ShipmentFactory.create(new DateTime(), 10, 100));
 
-		operator.cutoff(stocks, shipments, newStocks, newShipments);
+        MockResult<Stock> newStocks = new MockResult<Stock>();
+        MockResult<Shipment> newShipments = new MockResult<Shipment>();
 
-		assertThat(newStocks.getResults().size(), is(1));
-		assertThat(newShipments.getResults().size(), is(1));
-	}
-	
-	@Test
-	public void testCutoff_shortage() {
-		StockOpImpl operator = new StockOpImpl();
+        operator.cutoff(stocks, shipments, newStocks, newShipments);
 
-		List<Stock> stocks = new ArrayList<Stock>();
-		stocks.add(StockFactory.create(new DateTime(), 0, 100, 10));
+        assertThat(newStocks.getResults().size(), is(1));
+        assertThat(newShipments.getResults().size(), is(1));
+    }
 
-		List<Shipment> shipments = new ArrayList<Shipment>();
-		MockResult<Stock> newStocks = new MockResult<Stock>();
-		MockResult<Shipment> newShipments = new MockResult<Shipment>();
+    /**
+     * {@link StockOp#cutoff(List, List, Result, Result)}, stocks are shortage.
+     */
+    @Test
+    public void testCutoff_shortage() {
+        StockOpImpl operator = new StockOpImpl();
 
-		operator.cutoff(stocks, shipments, newStocks, newShipments);
+        List<Stock> stocks = Arrays.asList(StockFactory.create(new DateTime(), 0, 100, 10));
+        List<Shipment> shipments = Arrays.asList();
+        MockResult<Stock> newStocks = new MockResult<Stock>();
+        MockResult<Shipment> newShipments = new MockResult<Shipment>();
 
-		assertThat(newStocks.getResults().size(), is(1));
-		assertThat(newShipments.getResults().size(), is(0));
-	}
+        operator.cutoff(stocks, shipments, newStocks, newShipments);
 
-	@Test
-	public void testCutoff_race() {
-		StockOpImpl operator = new StockOpImpl();
+        assertThat(newStocks.getResults().size(), is(1));
+        assertThat(newShipments.getResults().size(), is(0));
+    }
 
-		List<Stock> stocks = new ArrayList<Stock>();
-		List<Shipment> shipments = new ArrayList<Shipment>();
+    /**
+     * {@link StockOp#cutoff(List, List, Result, Result)}, shipments are raced.
+     */
+    @Test
+    public void testCutoff_race() {
+        StockOpImpl operator = new StockOpImpl();
 
-		MockResult<Stock> newStocks = new MockResult<Stock>();
-		MockResult<Shipment> newShipments = new MockResult<Shipment>();
+        List<Stock> stocks = new ArrayList<Stock>();
+        List<Shipment> shipments = new ArrayList<Shipment>();
 
-		operator.cutoff(stocks, shipments, newStocks, newShipments);
+        MockResult<Stock> newStocks = new MockResult<Stock>();
+        MockResult<Shipment> newShipments = new MockResult<Shipment>();
 
-		assertThat(newStocks.getResults().size(), is(0));
-		assertThat(newShipments.getResults().size(), is(0));
-	}
+        operator.cutoff(stocks, shipments, newStocks, newShipments);
+
+        assertThat(newStocks.getResults().size(), is(0));
+        assertThat(newShipments.getResults().size(), is(0));
+    }
 }

@@ -38,7 +38,7 @@ public class SummarizeReceiptBatchTest {
 
 	static final String INPUT_PATH = "/com/asakusafw/example/summarization/input";
 	static final String OUTPUT_PATH = "/com/asakusafw/example/summarization/output";
-	static final String DUMP_PATH = "/com/asakusafw/example/summarization/dump";
+	static final String DUMP_PATH = "/dump";
 	static final String JOBFLOW_NAME = "summarizeReceiptJobFlow";
 
 	BatchTester tester;
@@ -63,33 +63,33 @@ public class SummarizeReceiptBatchTest {
 		tester.jobflow(JOBFLOW_NAME).output("error", ErrorReceipt.class)
 			.verify(OUTPUT_PATH + "/expected_error_receipt.xls#output",
 					OUTPUT_PATH + "/expected_error_receipt.xls#rule")
-			.dumpActual(new ExcelSheetSinkFactory("src/test/resources" +
+			.dumpActual(new ExcelSheetSinkFactory("target" +
 					DUMP_PATH + "/error_receipt_actual.xls"))
-			.dumpDifference(new HtmlDifferenceSinkFactory("src/test/resources" +
+			.dumpDifference(new HtmlDifferenceSinkFactory("target" +
 					DUMP_PATH + "/error_receipt_difference.html"));
 
 		tester.jobflow(JOBFLOW_NAME).output("itemSummary", ItemSummary.class)
 			.verify(OUTPUT_PATH + "/expected_item_summary.xls#output",
 					OUTPUT_PATH + "/expected_item_summary.xls#rule")
-			.dumpActual(new ExcelSheetSinkFactory("src/test/resources" +
+			.dumpActual(new ExcelSheetSinkFactory("target" +
 					DUMP_PATH + "/item_summary_actual.xls"))
-			.dumpDifference(new HtmlDifferenceSinkFactory("src/test/resources" +
+			.dumpDifference(new HtmlDifferenceSinkFactory("target" +
 					DUMP_PATH + "/item_summary_difference.html"));
 
 		tester.jobflow(JOBFLOW_NAME).output("categorySummary", CategorySummary.class)
 			.verify(OUTPUT_PATH + "/expected_category_summary.xls#output",
 					OUTPUT_PATH + "/expected_category_summary.xls#rule")
-			.dumpActual(new ExcelSheetSinkFactory("src/test/resources" +
+			.dumpActual(new ExcelSheetSinkFactory("target" +
 					DUMP_PATH + "/category_summary_actual.xls"))
-			.dumpDifference(new HtmlDifferenceSinkFactory("src/test/resources" +
+			.dumpDifference(new HtmlDifferenceSinkFactory("target" +
 					DUMP_PATH + "/category_summary_difference.html"));
 
 		tester.jobflow(JOBFLOW_NAME).output("shopSummary", ShopSummary.class)
 			.verify(OUTPUT_PATH + "/expected_shop_summary.xls#output",
 					OUTPUT_PATH + "/expected_shop_summary.xls#rule")
-			.dumpActual(new ExcelSheetSinkFactory("src/test/resources" +
+			.dumpActual(new ExcelSheetSinkFactory("target" +
 					DUMP_PATH + "/shop_summary_actual.xls"))
-			.dumpDifference(new HtmlDifferenceSinkFactory("src/test/resources" +
+			.dumpDifference(new HtmlDifferenceSinkFactory("target" +
 					DUMP_PATH + "/shop_summary_difference.html"));
 
 		tester.runTest(SummarizeReceiptBatch.class);
