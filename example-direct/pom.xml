@@ -11,7 +11,7 @@
 
 		<!-- Apache Hadoop does not support FileExporterDescription. <hadoop.version>0.20.203.0</hadoop.version> -->
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
-		<hadoop.version>1.1.1</hadoop.version>
+		<hadoop.version>1.1.2</hadoop.version>
 		<commons.io.version>2.3</commons.io.version>
 		<commons.lang.version>2.6</commons.lang.version>
 		<commons.logging.version>1.0.4</commons.logging.version>
