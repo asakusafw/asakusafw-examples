@@ -11,20 +11,20 @@
 
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
 		<hadoop.version>1.1.2</hadoop.version>
-		<logback.version>1.0.3</logback.version>
+		<logback.version>1.0.12</logback.version>
 
 		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<asakusa.build.antfile>${env.ASAKUSA_HOME}/scripts/asakusa-build.xml</asakusa.build.antfile>
 
-		<plugin.resources.version>2.5</plugin.resources.version>
-		<plugin.compiler.version>2.5.1</plugin.compiler.version>
-		<plugin.surefire.version>2.12</plugin.surefire.version>
-		<plugin.source.version>2.1.2</plugin.source.version>
+		<plugin.resources.version>2.6</plugin.resources.version>
+		<plugin.compiler.version>3.1</plugin.compiler.version>
+		<plugin.surefire.version>2.14.1</plugin.surefire.version>
+		<plugin.source.version>2.2.1</plugin.source.version>
 		<plugin.eclipse.version>2.9</plugin.eclipse.version>
 		<plugin.m2e.version>1.0.0</plugin.m2e.version>
-		<plugin.build-helper.version>1.7</plugin.build-helper.version>
+		<plugin.build-helper.version>1.8</plugin.build-helper.version>
 		<plugin.antrun.version>1.7</plugin.antrun.version>
 		<plugin.properties.version>1.0-alpha-2</plugin.properties.version>
 	</properties>
