@@ -28,6 +28,7 @@
 		<module>../example-jdbc</module>
 		<module>../example-summarization</module>
 		<module>../example-seqfile</module>
+		<module>../example-flowpart</module>
 	</modules>
 
 	<build>
