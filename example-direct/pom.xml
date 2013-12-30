@@ -7,7 +7,7 @@
 	<version>1.0-SNAPSHOT</version>
 
 	<properties>
-		<asakusafw.version>0.5-SNAPSHOT</asakusafw.version>
+		<asakusafw.version>0.6-SNAPSHOT</asakusafw.version>
 
 		<!-- Apache Hadoop does not support FileExporterDescription. <hadoop.version>0.20.203.0</hadoop.version> -->
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
