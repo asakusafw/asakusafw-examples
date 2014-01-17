@@ -8,6 +8,11 @@ buildscript {
     }
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
+    jarFile = file('.buildtools/gradlew.jar')
+}
+
 apply plugin: 'asakusafw'
 apply plugin: 'asakusafw-organizer'
 apply plugin: 'eclipse'
@@ -24,19 +29,19 @@ asakusafw {
 }
 
 asakusafwOrganizer {
-    asakusafwVersion = "${asakusafw.asakusafwVersion}"
+    asakusafwVersion = asakusafw.asakusafwVersion
 }
 
 dependencies {
-    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-core', version: "${asakusafw.asakusafwVersion}"
-    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-directio', version: "${asakusafw.asakusafwVersion}"
-    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-windgate', version: "${asakusafw.asakusafwVersion}"
+    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-core', version: asakusafw.asakusafwVersion
+    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-directio', version: asakusafw.asakusafwVersion
+    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-windgate', version: asakusafw.asakusafwVersion
 
     provided (group: 'org.apache.hadoop', name: 'hadoop-client', version: '1.2.1') {
-        exclude(module: 'junit')
-        exclude(module: 'mockito-all')
-        exclude(module: 'slf4j-log4j12')
+        exclude module: 'junit'
+        exclude module: 'mockito-all'
+        exclude module: 'slf4j-log4j12'
     }
     
-    compile group: 'com.asakusafw.sandbox', name: 'asakusa-directio-dmdl-ext', version: "${asakusafw.asakusafwVersion}"
+    compile group: 'com.asakusafw.sandbox', name: 'asakusa-directio-dmdl-ext', version: asakusafw.asakusafwVersion
 }
