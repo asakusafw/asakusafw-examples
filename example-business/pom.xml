@@ -313,10 +313,6 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>com.mycila.maven-license-plugin</groupId>
-				<artifactId>maven-license-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
@@ -343,23 +339,35 @@ org.eclipse.jdt.apt.reconcileEnabled=true
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>com.mycila.maven-license-plugin</groupId>
+				<artifactId>maven-license-plugin</artifactId>
+				<version>1.9.0</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.asakusafw</groupId>
+						<artifactId>build-tools</artifactId>
+						<version>${project.version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<aggregate>true</aggregate>
+					<strictCheck>true</strictCheck>
+					<header>/com/asakusafw/source-header.txt</header>
+					<includes>
+						<include>src/**/*.java</include>
+						<include>src/**/*.sh</include>
+					</includes>
+					<encoding>UTF-8</encoding>
+					<mapping>
+						<flex>JAVADOC_STYLE</flex>
+						<jj>JAVADOC_STYLE</jj>
+					</mapping>
+				</configuration>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<groupId>com.mycila.maven-license-plugin</groupId>
-					<artifactId>maven-license-plugin</artifactId>
-					<version>1.9.0</version>
-					<configuration>
-						<aggregate>true</aggregate>
-						<strictCheck>true</strictCheck>
-						<header>../asakusa-parent/src/main/conf/source-header.txt</header>
-						<includes>
-							<include>src/**/*.java</include>
-						</includes>
-						<encoding>UTF-8</encoding>
-					</configuration>
-				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
