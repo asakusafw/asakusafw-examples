@@ -4,4 +4,6 @@
 /.settings
 /target
 .*.crc
-
+/.gradle
+/bin
+/build
