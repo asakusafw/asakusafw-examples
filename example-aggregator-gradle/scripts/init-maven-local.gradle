@@ -1,0 +1,12 @@
+allprojects {
+    buildscript {
+        repositories {
+            mavenLocal()
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+logger.info "Applied init script: init-maven-local.gradle"
+

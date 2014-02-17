@@ -4,7 +4,7 @@
 	<name>Asakusa Framework Examples Aggregator POM</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>examples-aggregator</artifactId>
-	<version>0.5-SNAPSHOT</version>
+	<version>0.6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<description>Asakusa Framework Examples Aggregator POM</description>
@@ -28,6 +28,7 @@
 		<module>../example-jdbc</module>
 		<module>../example-summarization</module>
 		<module>../example-seqfile</module>
+		<module>../example-flowpart</module>
 	</modules>
 
 	<build>
