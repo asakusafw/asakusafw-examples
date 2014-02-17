@@ -4,7 +4,7 @@
 	<name>Example Business</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>example-business</artifactId>
-	<version>0.6.0-RC2</version>
+	<version>0.6.0</version>
 
 	<url>http://asakusafw.com</url>
 	<licenses>
@@ -16,7 +16,7 @@
 	</licenses>
 
 	<properties>
-		<asakusafw.version>0.6.0-RC2</asakusafw.version>
+		<asakusafw.version>0.6.0</asakusafw.version>
 
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
 		<hadoop.version>1.2.1</hadoop.version>
