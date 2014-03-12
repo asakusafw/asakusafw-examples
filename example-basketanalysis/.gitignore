@@ -4,3 +4,7 @@
 /.settings
 /batchapps
 /target
+/bin
+/.gradle
+/build
+

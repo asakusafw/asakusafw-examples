@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        maven { url 'http://asakusafw.s3.amazonaws.com/maven/releases' }
+    }
+    dependencies {
+        classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.6-SNAPSHOT'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion '1.10'
+    jarFile file('.buildtools/gradlew.jar')
+}
+
+apply plugin: 'asakusafw'
+apply plugin: 'asakusafw-organizer'
+apply plugin: 'eclipse'
+
+asakusafw {
+    asakusafwVersion '0.6-SNAPSHOT'
+
+    modelgen {
+        modelgenSourcePackage 'com.example.tutorial.modelgen'
+    }
+    compiler {
+        compiledSourcePackage 'com.example.tutorial.batchapp'
+    }
+    thundergate {
+        target 'asakusa'
+    }
+}
+
+asakusafwOrganizer {
+    asakusafwVersion asakusafw.asakusafwVersion
+    thundergate {
+        target 'asakusa'
+    }
+}
+
+dependencies {
+    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-core', version: asakusafw.asakusafwVersion
+    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-thundergate', version: asakusafw.asakusafwVersion
+
+    testCompile group: 'com.asakusafw', name: 'asakusa-legacy-test-driver', version: asakusafw.asakusafwVersion
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.25'
+
+    provided (group: 'org.apache.hadoop', name: 'hadoop-client', version: '1.2.1') {
+        exclude module: 'junit'
+        exclude module: 'mockito-all'
+        exclude module: 'slf4j-log4j12'
+    }
+}

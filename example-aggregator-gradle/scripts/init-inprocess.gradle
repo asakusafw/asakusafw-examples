@@ -1,11 +1,8 @@
 allprojects {
     afterEvaluate {Project project ->
         project.plugins.matching({ it == plugins.findPlugin('asakusafw') }).all { plugin ->
-            test.dependsOn installAsakusafw
-
             dependencies {
-                testRuntime group: 'com.asakusafw.sandbox', name: 'asakusa-test-driver-ext', version: asakusafw.asakusafwVersion
-                testRuntime group: 'com.asakusafw.sandbox', name: 'asakusa-test-driver-tools', version: asakusafw.asakusafwVersion
+                testRuntime group: 'com.asakusafw', name: 'asakusa-test-inprocess', version: asakusafw.asakusafwVersion
             }
         }
     }
