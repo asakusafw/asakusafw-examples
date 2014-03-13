@@ -4,7 +4,7 @@
 	<name>Asakusa Framework Examples Aggregator POM</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>examples-aggregator</artifactId>
-	<version>0.6.0</version>
+	<version>0.6.1-RC1</version>
 	<packaging>pom</packaging>
 
 	<description>Asakusa Framework Examples Aggregator POM</description>
