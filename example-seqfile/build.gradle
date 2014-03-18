@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        maven { url 'http://asakusafw.s3.amazonaws.com/maven/snapshots' }
         maven { url 'http://asakusafw.s3.amazonaws.com/maven/releases' }
     }
     dependencies {

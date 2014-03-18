@@ -1,0 +1,5 @@
+task wrapper(type: Wrapper) {
+    gradleVersion '1.10'
+    jarFile file('.buildtools/gradlew.jar')
+}
+

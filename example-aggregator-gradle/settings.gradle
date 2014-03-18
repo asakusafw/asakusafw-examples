@@ -1,2 +1,0 @@
-includeFlat 'example-csv', 'example-flowpart', 'example-jdbc', 'example-seqfile', 'example-summarization', 'example-tsv-compress'
-
