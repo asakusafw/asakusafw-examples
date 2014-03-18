@@ -4,10 +4,10 @@
 	<name>Example for Direct I/O with SequenceFile</name>
 	<groupId>com.asakusafw.example</groupId>
 	<artifactId>example-seqfile</artifactId>
-	<version>0.6.1-RC1</version>
+	<version>0.6.1</version>
 
 	<properties>
-		<asakusafw.version>0.6.1-RC1</asakusafw.version>
+		<asakusafw.version>0.6.1</asakusafw.version>
 
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
 		<hadoop.version>1.2.1</hadoop.version>
