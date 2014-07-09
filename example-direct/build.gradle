@@ -17,7 +17,7 @@ apply plugin: 'asakusafw-organizer'
 apply plugin: 'eclipse'
 
 asakusafw {
-    asakusafwVersion '0.7-SNAPSHOT'
+    asakusafwVersion projectAsakusafwVersion
 
     modelgen {
         modelgenSourcePackage 'com.asakusafw.example.direct.modelgen'
@@ -39,7 +39,7 @@ dependencies {
     testCompile group: 'com.asakusafw', name: 'asakusa-fileio-test-moderator', version: asakusafw.asakusafwVersion
     testCompile group: 'com.asakusafw', name: 'asakusa-legacy-test-driver', version: asakusafw.asakusafwVersion
 
-    provided (group: 'org.apache.hadoop', name: 'hadoop-client', version: '1.2.1') {
+    provided (group: 'org.apache.hadoop', name: 'hadoop-client', version: projectHadoopVersion) {
         exclude module: 'junit'
         exclude module: 'mockito-all'
         exclude module: 'slf4j-log4j12'
