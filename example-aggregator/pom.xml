@@ -29,6 +29,8 @@
 		<module>../example-summarization</module>
 		<module>../example-seqfile</module>
 		<module>../example-flowpart</module>
+		<module>../example-directio-inprocess</module>
+		<module>../example-windgate-inprocess</module>
 	</modules>
 
 	<build>
