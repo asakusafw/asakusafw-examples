@@ -7,7 +7,7 @@
 	<version>0.7-SNAPSHOT</version>
 
 	<properties>
-		<asakusafw.version>0.7-SNAPSHOT</asakusafw.version>
+		<asakusafw.version>0.7-hadoop1-SNAPSHOT</asakusafw.version>
 
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
 		<hadoop.version>1.2.1</hadoop.version>
