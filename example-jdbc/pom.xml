@@ -142,8 +142,8 @@
 				<configuration>
 					<fork>true</fork>
 					<encoding>${project.build.sourceEncoding}</encoding>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 					<compilerArgument>-Xmaxerrs" "10000" "-XprintRounds</compilerArgument>
 					<useIncrementalCompilation>false</useIncrementalCompilation>
 				</configuration>
@@ -181,7 +181,7 @@
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>false</downloadJavadocs>
 					<classpathContainers>
-						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</classpathContainer>
+						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7</classpathContainer>
 					</classpathContainers>
 					<additionalConfig>
 						<file>
