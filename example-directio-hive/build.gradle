@@ -35,7 +35,6 @@ dependencies {
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-core', version: asakusafw.asakusafwVersion
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-directio', version: asakusafw.asakusafwVersion
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-windgate', version: asakusafw.asakusafwVersion
-    compile group: 'com.asakusafw', name: 'asakusa-test-inprocess', version: asakusafw.asakusafwVersion
 
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-hive', version: asakusafw.asakusafwVersion
 
@@ -45,3 +44,5 @@ dependencies {
         exclude module: 'slf4j-log4j12'
     }
 }
+
+attachAssemble.dependsOn(attachExtensionDirectIoHive)
