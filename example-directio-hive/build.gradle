@@ -29,6 +29,7 @@ asakusafw {
 
 asakusafwOrganizer {
     asakusafwVersion asakusafw.asakusafwVersion
+    hive.enabled true
 }
 
 dependencies {
@@ -44,5 +45,3 @@ dependencies {
         exclude module: 'slf4j-log4j12'
     }
 }
-
-attachAssemble.dependsOn(attachExtensionDirectIoHive)
