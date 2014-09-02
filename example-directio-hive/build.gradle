@@ -28,8 +28,10 @@ asakusafw {
 }
 
 asakusafwOrganizer {
-    asakusafwVersion asakusafw.asakusafwVersion
     hive.enabled true
+    profiles.prod {
+        asakusafwVersion asakusafw.asakusafwVersion
+    }
 }
 
 dependencies {

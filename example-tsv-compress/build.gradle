@@ -28,7 +28,9 @@ asakusafw {
 }
 
 asakusafwOrganizer {
-    asakusafwVersion asakusafw.asakusafwVersion
+    profiles.prod {
+        asakusafwVersion asakusafw.asakusafwVersion
+    }
 }
 
 dependencies {

@@ -26,14 +26,17 @@ asakusafw {
         compiledSourcePackage 'com.example.business.batchapp'
     }
     thundergate {
-        target 'asakusa'
+        jdbcFile 'src/dist/common/bulkloader/conf/asakusa-jdbc.properties'
     }
 }
 
 asakusafwOrganizer {
-    asakusafwVersion asakusafw.asakusafwVersion
-    thundergate {
-        target 'asakusa'
+    thundergate.enabled true
+    assembly.into('.') {
+        put 'src/dist/common'
+    }
+    profiles.prod {
+        asakusafwVersion asakusafw.asakusafwVersion
     }
 }
 
