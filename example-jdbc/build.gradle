@@ -8,7 +8,7 @@ buildscript {
 }
 
 task wrapper(type: Wrapper) {
-    distributionUrl 'http://services.gradle.org/distributions/gradle-2.0-bin.zip'
+    distributionUrl 'http://services.gradle.org/distributions/gradle-2.1-bin.zip'
     jarFile file('.buildtools/gradlew.jar')
 }
 
@@ -27,7 +27,19 @@ asakusafw {
     }
 }
 
+configurations {
+    jdbcDriver
+}
+
 asakusafwOrganizer {
+    windgate.retryableEnabled true
+    assembly.into('') {
+        put 'src/dist/common'
+    }
+    assembly.into('windgate/plugin') {
+        put configurations.jdbcDriver
+    }
+    
     profiles.prod {
         asakusafwVersion asakusafw.asakusafwVersion
     }
@@ -43,29 +55,8 @@ dependencies {
         exclude module: 'mockito-all'
         exclude module: 'slf4j-log4j12'
     }
-}
-
-configurations {
-    jdbcDriver
-}
-
-dependencies {
+    
     jdbcDriver group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
-}
-
-afterEvaluate {
-    installAsakusafw {
-        doLast {
-            ant.replace(
-                file: "${System.env.ASAKUSA_HOME}/windgate/profile/asakusa.properties",
-                token: '#resource.jdbc',
-                value: 'resource.jdbc')
-            copy {
-                from configurations.jdbcDriver
-                into "${System.env.ASAKUSA_HOME}/windgate/plugin"
-            }
-        }
-    }
 }
 
 task setupDDL << {
