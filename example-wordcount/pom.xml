@@ -4,7 +4,7 @@
 	<name>Asakusa Framework Word Count Example</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>example-wordcount</artifactId>
-	<version>0.7.0-RC2</version>
+	<version>0.7.0-RC3</version>
 
 	<url>http://asakusafw.com</url>
 	<licenses>
@@ -16,7 +16,7 @@
 	</licenses>
 
 	<properties>
-		<asakusafw.version>0.7.0-RC2-hadoop1</asakusafw.version>
+		<asakusafw.version>0.7.0-RC3-hadoop1</asakusafw.version>
 
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
 		<hadoop.version>1.2.1</hadoop.version>
