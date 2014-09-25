@@ -1,0 +1,123 @@
+-- 入力ファイル形式
+-- 売上明細: ORCFile
+-- 店舗マスタ,商品マスタ: Parquet
+
+"売上明細"
+@directio.hive.orc
+sales_detail = {
+
+    "売上日時"
+    sales_date_time : DATETIME;
+
+    "店舗コード"
+    store_code : TEXT;
+
+    "商品コード"
+    item_code : TEXT;
+
+    "数量"
+    amount : INT;
+
+    "販売単価"
+    unit_selling_price : INT;
+
+    "販売金額"
+    selling_price : INT;
+};
+
+"店舗マスタ"
+@directio.hive.parquet
+store_info = {
+
+    "店舗コード"
+    store_code : TEXT;
+
+    "店舗名称"
+    store_name : TEXT;
+};
+
+"商品マスタ"
+@directio.hive.parquet
+item_info = {
+
+    "商品コード"
+    item_code : TEXT;
+
+    "商品名"
+    item_name : TEXT;
+
+    "商品部門コード"
+    department_code : TEXT;
+
+    "商品部門名"
+    department_name : TEXT;
+
+    "商品カテゴリコード"
+    category_code : TEXT;
+
+    "商品カテゴリ名"
+    category_name : TEXT;
+
+    "商品単価"
+    unit_selling_price : INT;
+
+    "マスタ登録日"
+    @directio.hive.string
+    registered_date : DATE;
+
+    "マスタ適用開始日"
+    @directio.hive.string
+    begin_date : DATE;
+
+    "マスタ適用終了日"
+    @directio.hive.string
+    end_date : DATE;
+};
+
+-- 中間データ形式
+
+"売上明細+商品マスタ"
+joined joined_sales_info
+= sales_detail -> {
+    item_code -> item_code;
+    amount -> amount;
+    selling_price -> selling_price;
+} % item_code
++ item_info -> {
+    item_code -> item_code;
+    category_code -> category_code;
+} % item_code;
+
+
+-- 出力CSV形式
+-- カテゴリ別売上集計: ORCFile
+-- エラー情報: Parquet
+
+"カテゴリ別売上集計"
+@directio.hive.orc
+summarized category_summary = joined_sales_info => {
+
+    any category_code -> category_code;
+
+    sum amount -> amount_total;
+
+    sum selling_price -> selling_price_total;
+} % category_code;
+
+"エラー情報"
+@directio.hive.parquet
+error_record = {
+
+    "売上日時"
+    @directio.hive.string
+    sales_date_time : DATETIME;
+
+    "店舗コード"
+    store_code : TEXT;
+
+    "商品コード"
+    item_code : TEXT;
+
+    "エラーメッセージ"
+    message : TEXT;
+};

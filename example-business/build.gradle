@@ -3,12 +3,12 @@ buildscript {
         maven { url 'http://asakusafw.s3.amazonaws.com/maven/releases' }
     }
     dependencies {
-        classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.6-SNAPSHOT'
+        classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.7-SNAPSHOT'
     }
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion '1.12'
+    distributionUrl 'http://services.gradle.org/distributions/gradle-2.1-bin.zip'
     jarFile file('.buildtools/gradlew.jar')
 }
 
@@ -17,7 +17,7 @@ apply plugin: 'asakusafw-organizer'
 apply plugin: 'eclipse'
 
 asakusafw {
-    asakusafwVersion '0.6-SNAPSHOT'
+    asakusafwVersion projectAsakusafwVersion
 
     modelgen {
         modelgenSourcePackage 'com.example.business.modelgen'
@@ -26,14 +26,17 @@ asakusafw {
         compiledSourcePackage 'com.example.business.batchapp'
     }
     thundergate {
-        target 'asakusa'
+        jdbcFile 'src/dist/common/bulkloader/conf/asakusa-jdbc.properties'
     }
 }
 
 asakusafwOrganizer {
-    asakusafwVersion asakusafw.asakusafwVersion
-    thundergate {
-        target 'asakusa'
+    thundergate.enabled true
+    assembly.into('.') {
+        put 'src/dist/common'
+    }
+    profiles.prod {
+        asakusafwVersion asakusafw.asakusafwVersion
     }
 }
 
@@ -43,7 +46,7 @@ dependencies {
 
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.25'
 
-    provided (group: 'org.apache.hadoop', name: 'hadoop-client', version: '1.2.1') {
+    provided (group: 'org.apache.hadoop', name: 'hadoop-client', version: projectHadoopVersion) {
         exclude module: 'junit'
         exclude module: 'mockito-all'
         exclude module: 'slf4j-log4j12'

@@ -4,7 +4,7 @@
 	<name>Asakusa Framework Examples Aggregator POM</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>examples-aggregator</artifactId>
-	<version>0.6-SNAPSHOT</version>
+	<version>0.7-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<description>Asakusa Framework Examples Aggregator POM</description>
@@ -29,6 +29,8 @@
 		<module>../example-summarization</module>
 		<module>../example-seqfile</module>
 		<module>../example-flowpart</module>
+		<module>../example-directio-inprocess</module>
+		<module>../example-windgate-inprocess</module>
 	</modules>
 
 	<build>
