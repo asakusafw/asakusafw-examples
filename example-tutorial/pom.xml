@@ -4,7 +4,7 @@
 	<name>Example Tutorial</name>
 	<groupId>com.asakusafw</groupId>
 	<artifactId>example-tutorial</artifactId>
-	<version>0.7.0-RC3</version>
+	<version>0.7.0</version>
 
 	<url>http://asakusafw.com</url>
 	<licenses>
@@ -16,7 +16,7 @@
 	</licenses>
 
 	<properties>
-		<asakusafw.version>0.7.0-RC3-hadoop1</asakusafw.version>
+		<asakusafw.version>0.7.0-hadoop1</asakusafw.version>
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
 		<hadoop.version>1.2.1</hadoop.version>
 		<slf4j.version>1.7.5</slf4j.version>

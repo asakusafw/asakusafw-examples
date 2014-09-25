@@ -4,10 +4,10 @@
 	<name>Example for WindGate/CSV</name>
 	<groupId>com.asakusafw.example</groupId>
 	<artifactId>example-csv</artifactId>
-	<version>0.7.0-RC3</version>
+	<version>0.7.0</version>
 
 	<properties>
-		<asakusafw.version>0.7.0-RC3-hadoop1</asakusafw.version>
+		<asakusafw.version>0.7.0-hadoop1</asakusafw.version>
 
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
 		<hadoop.version>1.2.1</hadoop.version>
