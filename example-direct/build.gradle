@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url 'http://asakusafw.s3.amazonaws.com/maven/releases' }
+        maven { url projectAsakusafwMavenRepos }
     }
     dependencies {
         classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.7-SNAPSHOT'
