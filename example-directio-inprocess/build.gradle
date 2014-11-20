@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url 'http://asakusafw.s3.amazonaws.com/maven/releases' }
+        maven { url projectAsakusafwMavenRepos }
     }
     dependencies {
         classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.7-SNAPSHOT'
@@ -37,7 +37,7 @@ dependencies {
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-core', version: asakusafw.asakusafwVersion
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-directio', version: asakusafw.asakusafwVersion
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-windgate', version: asakusafw.asakusafwVersion
-    compile group: 'com.asakusafw', name: 'asakusa-test-inprocess', version: asakusafw.asakusafwVersion
+    compile group: 'com.asakusafw', name: 'asakusa-test-inprocess-ext', version: asakusafw.asakusafwVersion
 
     provided (group: 'org.apache.hadoop', name: 'hadoop-client', version: projectHadoopVersion) {
         exclude module: 'junit'
