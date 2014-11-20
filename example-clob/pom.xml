@@ -4,10 +4,10 @@
 	<name>CLOB example</name>
 	<groupId>com.asakusafw.example</groupId>
 	<artifactId>example-clob</artifactId>
-	<version>0.7.1-RC1</version>
+	<version>0.7.1</version>
 
 	<properties>
-		<asakusafw.version>0.7.1-RC1-hadoop1</asakusafw.version>
+		<asakusafw.version>0.7.1-hadoop1</asakusafw.version>
 
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
 		<hadoop.version>1.2.1</hadoop.version>
