@@ -4,10 +4,10 @@
 	<name>(Deprecated) Example for FileImporter/Exporter</name>
 	<groupId>com.asakusafw.example</groupId>
 	<artifactId>example-direct</artifactId>
-	<version>0.7.2-RC1</version>
+	<version>0.7.2</version>
 
 	<properties>
-		<asakusafw.version>0.7.2-RC1-hadoop1</asakusafw.version>
+		<asakusafw.version>0.7.2-hadoop1</asakusafw.version>
 
 		<!-- Apache Hadoop does not support FileExporterDescription. <hadoop.version>0.20.203.0</hadoop.version> -->
 		<hadoop.artifact.id>hadoop-client</hadoop.artifact.id>
