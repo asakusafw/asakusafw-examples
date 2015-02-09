@@ -3,7 +3,14 @@
 /.project
 /.settings
 /.gradle
+/.idea
 /target
-/bin
 /build
-
+/bin
+/out
+*.iml
+*.ipr
+*.iws
+*.swp
+.*.crc
+.DS_Store
