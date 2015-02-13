@@ -1,5 +1,0 @@
-task wrapper(type: Wrapper) {
-    distributionUrl 'http://services.gradle.org/distributions/gradle-2.2.1-bin.zip'
-    jarFile file('.buildtools/gradlew.jar')
-}
-
