@@ -1,7 +1,0 @@
-Tutorial for Asakusa Framewark.
-Fill up lacks on code to understand Asakusa DSL. Lack is tagged by XXX in comment.
-And so there are lacks, this project cannot build until you modify it.
-
-Asakusa Frameworkのチュートリアルです。
-コードの欠落部分を埋めてAsakusa DSLに対する理解を深めてください。欠落部分は、コメントをXXXでタグ付けしています。
-また、コードに欠落があるため、実装を行わないとビルドすることができません。
