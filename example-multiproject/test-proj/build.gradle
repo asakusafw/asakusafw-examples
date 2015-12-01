@@ -3,7 +3,7 @@ buildscript {
         maven { url projectAsakusafwMavenRepos }
     }
     dependencies {
-        classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.7.6-RC1'
+        classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.7.6'
     }
 }
 
