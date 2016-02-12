@@ -1,44 +1,24 @@
+group 'com.example'
+
 buildscript {
     repositories {
-        maven { url projectAsakusafwMavenRepos }
+        maven { url 'http://asakusafw.s3.amazonaws.com/maven/releases' }
+        maven { url 'http://asakusafw.s3.amazonaws.com/maven/snapshots' }
     }
     dependencies {
-        classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.8.0-SNAPSHOT'
+        classpath group: 'com.asakusafw.spark', name: 'asakusa-spark-gradle', version: '0.3.0-SNAPSHOT'
     }
 }
 
-task wrapper(type: Wrapper) {
-    distributionUrl 'http://services.gradle.org/distributions/gradle-2.8-bin.zip'
-    jarFile file('.buildtools/gradlew.jar')
-}
-
-apply plugin: 'asakusafw'
+apply plugin: 'asakusafw-sdk'
 apply plugin: 'asakusafw-organizer'
+apply plugin: 'asakusafw-mapreduce'
+apply plugin: 'asakusafw-spark'
 apply plugin: 'eclipse'
-
-asakusafw {
-    asakusafwVersion projectAsakusafwVersion
-
-    modelgen {
-        modelgenSourcePackage 'com.example.modelgen'
-    }
-    compiler {
-        compiledSourcePackage 'com.example.batchapp'
-    }
-}
-
-asakusafwOrganizer {
-    asakusafwVersion asakusafw.asakusafwVersion
-}
 
 dependencies {
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-core', version: asakusafw.asakusafwVersion
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-directio', version: asakusafw.asakusafwVersion
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-windgate', version: asakusafw.asakusafwVersion
-
-    provided (group: 'org.apache.hadoop', name: 'hadoop-client', version: projectHadoopVersion) {
-        exclude module: 'junit'
-        exclude module: 'mockito-all'
-        exclude module: 'slf4j-log4j12'
-    }
+    compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-test-emulation', version: asakusafw.asakusafwVersion
 }
