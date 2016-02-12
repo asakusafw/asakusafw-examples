@@ -6,12 +6,10 @@ This includes following application projects:
 ## Using Direct I/O
 * `example-directio-csv` - Demonstrates the use of Direct I/O CSV
 * `example-directio-hive` - Demonstrates the use of Direct I/O Hive
-* `example-directio-inprocess` - Configuring and using TestDriver Emulation Mode
 * `example-directio-tsv` - Demonstrates the use of Direct I/O TSV with Gzip codec
 
 ## Using WindGate
 * `example-windgate-csv` - Demonstrates the use of WindGate CSV
-* `example-windgate-inprocess` - Configuring and using TestDriver Emulation Mode
 * `example-windgate-jdbc` - Demonstrates the use of WindGate JDBC (configured for PostgreSQL)
 
 ## Using ThunderGate
