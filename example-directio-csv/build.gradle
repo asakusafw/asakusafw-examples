@@ -16,6 +16,14 @@ apply plugin: 'asakusafw-mapreduce'
 apply plugin: 'asakusafw-spark'
 apply plugin: 'eclipse'
 
+asakusafwOrganizer {
+    profiles.prod {
+        assembly.into('example-dataset') {
+            put 'src/test/example-dataset'
+        }
+    }
+}
+
 dependencies {
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-core', version: asakusafw.asakusafwVersion
     compile group: 'com.asakusafw.sdk', name: 'asakusa-sdk-directio', version: asakusafw.asakusafwVersion
