@@ -6,7 +6,7 @@ buildscript {
         maven { url 'http://asakusafw.s3.amazonaws.com/maven/snapshots' }
     }
     dependencies {
-        classpath group: 'com.asakusafw.spark', name: 'asakusa-spark-gradle', version: '0.3.0-SNAPSHOT'
+        classpath group: 'com.asakusafw.spark', name: 'asakusa-spark-gradle', version: '0.3.0'
     }
 }
 
