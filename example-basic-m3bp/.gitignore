@@ -1,0 +1,16 @@
+/.classpath
+/.factorypath
+/.project
+/.settings
+/.gradle
+/.idea
+/target
+/build
+/bin
+/out
+*.iml
+*.ipr
+*.iws
+*.swp
+.*.crc
+.DS_Store
