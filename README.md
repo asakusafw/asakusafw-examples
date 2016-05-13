@@ -3,9 +3,13 @@ This repository provides a number of examples to show usage of [Asakusa Framewor
 
 This includes following application projects:
 
-## Basic exmaples
+## Basic examples
 
-### [Asakusa on M<sup>3</sup>BP](https://github.com/asakusafw/asakusafw-m3bp)
+### Asakusa on Spark
+
+* [`example-basic-spark`](example-basic-spark) - A basic batch application using [Asakusa on Spark](https://github.com/asakusafw/asakusafw-spark) and Asakusa on MapReduce
+
+### Asakusa on M<sup>3</sup>BP
 
 * [`example-basic-m3bp`](example-basic-m3bp) - A basic batch application using [Asakusa on M<sup>3</sup>BP](https://github.com/asakusafw/asakusafw-m3bp)
 
