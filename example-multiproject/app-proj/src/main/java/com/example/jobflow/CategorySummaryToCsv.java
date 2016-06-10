@@ -40,4 +40,9 @@ public class CategorySummaryToCsv extends AbstractCategorySummaryCsvOutputDescri
     public List<String> getOrder() {
         return Arrays.asList("-selling_price_total");
     }
+
+    @Override
+    public List<String> getDeletePatterns() {
+        return Arrays.asList("*");
+    }
 }

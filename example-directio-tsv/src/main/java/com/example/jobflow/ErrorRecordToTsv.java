@@ -40,4 +40,9 @@ public class ErrorRecordToTsv extends AbstractErrorRecordTsvOutputDescription {
     public List<String> getOrder() {
         return Arrays.asList("+file_name");
     }
+
+    @Override
+    public List<String> getDeletePatterns() {
+        return Arrays.asList("*");
+    }
 }
