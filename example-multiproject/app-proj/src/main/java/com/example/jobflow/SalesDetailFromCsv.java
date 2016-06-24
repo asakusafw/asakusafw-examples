@@ -30,7 +30,7 @@ public class SalesDetailFromCsv extends AbstractSalesDetailCsvInputDescription {
 
     @Override
     public String getResourcePattern() {
-        return "**/*.csv";
+        return "**/${date}.csv";
     }
 
     @Override
