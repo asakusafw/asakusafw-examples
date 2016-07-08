@@ -68,7 +68,6 @@ public class CategorySummaryFlowPartTest {
 
     private void run(String dataSet, long errors) {
         FlowPartTester tester = new FlowPartTester(getClass());
-        tester.setBatchArg("date", "testing");
 
         In<StoreInfo> storeInfo = tester.input("storeInfo", StoreInfo.class)
             .prepare("masters.xls#store_info");
