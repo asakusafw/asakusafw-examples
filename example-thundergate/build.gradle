@@ -27,9 +27,6 @@ asakusafwOrganizer {
     assembly.into('.') {
         put 'src/dist/common'
     }
-    profiles.prod {
-        asakusafwVersion asakusafw.asakusafwVersion
-    }
 }
 
 dependencies {
