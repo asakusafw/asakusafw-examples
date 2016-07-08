@@ -74,20 +74,24 @@ Any batch applications using [Asakusa on Spark](https://github.com/asakusafw/asa
 
 ### Setting sample data
 
-This example application reads input data form `$HOME/target/testing/direcito` by default.
+This example application reads input data form `target/testing/direcito` on hadoop filesystem by default.
 You can use sample data includes `$ASAKUSA_HOME/example-dataset`.
 
 ```
-mkdir -p "$HOME/target/testing/directio"
-cp -a $ASAKUSA_HOME/example-dataset/* $HOME/target/testing/directio
+hadoop fs -mkdir -p target/testing/directio
+hadoop fs -put $ASAKUSA_HOME/example-dataset/master target/testing/directio/master
+hadoop fs -put $ASAKUSA_HOME/example-dataset/sales target/testing/directio/sales
 ```
 
 ### Setting environment variables
 
 You need to set `SPARK_CMD` environment variables to `spark-submit` command path of using Spark environment, or set path to `<path/to/spark>/bin` in your `PATH` environment variables.
 
+Also, you need to set `HADOOP_CMD` environment variables to `hadoop` command path of using Hadoop environment, or set path to `<path/to/hadoop>/bin` in your `PATH` environment variables.
+
 ```
 export SPARK_CMD=/opt/spark/bin/spark-submit
+export HADOOP_CMD=/opt/hadoop/bin/hadoop
 ```
 
 ### Running application
