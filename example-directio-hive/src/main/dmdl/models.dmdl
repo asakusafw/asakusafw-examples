@@ -109,7 +109,6 @@ summarized category_summary = joined_sales_info => {
 error_record = {
 
     "売上日時"
-    @directio.hive.string
     sales_date_time : DATETIME;
 
     "店舗コード"
