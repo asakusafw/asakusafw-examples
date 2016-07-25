@@ -6,7 +6,7 @@ buildscript {
         maven { url 'http://asakusafw.s3.amazonaws.com/maven/snapshots' }
     }
     dependencies {
-        classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.8.1'
+        classpath group: 'com.asakusafw', name: 'asakusa-gradle-plugins', version: '0.9.0-SNAPSHOT'
     }
 }
 
