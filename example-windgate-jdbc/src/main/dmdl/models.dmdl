@@ -1,6 +1,10 @@
 -- 入力テーブル形式
 
 "売上明細"
+@windgate.csv(
+    force_header = TRUE,
+    datetime = "yyyy-MM-dd HH:mm:ss"
+)
 @windgate.jdbc.table(
     name = "SALES_DETAIL"
 )
@@ -32,6 +36,7 @@ sales_detail = {
 };
 
 "店舗マスタ"
+@windgate.csv(force_header = TRUE)
 @windgate.jdbc.table(
     name = "STORE_INFO"
 )
@@ -47,6 +52,10 @@ store_info = {
 };
 
 "商品マスタ"
+@windgate.csv(
+    force_header = TRUE,
+    date = "yyyy-MM-dd"
+)
 @windgate.jdbc.table(
     name = "ITEM_INFO"
 )
