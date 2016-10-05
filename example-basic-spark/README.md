@@ -6,7 +6,7 @@ This project contains an example batch application working with [Asakusa on Spar
 
 ### Requirements
 
-* Java SE Development Kit >= 1.7
+* Java SE Development Kit >= 1.8
 
 ### Build with Gradle
 
@@ -66,11 +66,8 @@ find "$ASAKUSA_HOME" -name "*.sh" | xargs chmod u+x
 
 ### Requirements
 
-* Java SE Development Kit >= 1.7
-* [Apache Spark](http://spark.apache.org/) 1.6.1
-* [Apache Hadoop](http://hadoop.apache.org/) ( strongly recommended on YARN environment )
-
-Any batch applications using [Asakusa on Spark](https://github.com/asakusafw/asakusafw-spark) need not only Spark runtime environment but also Hadoop MapReduce runtime environment because writing final output data will be executed on Hadoop MapReduce job.
+* Java SE Development Kit >= 1.8
+* [Apache Spark](http://spark.apache.org/) 2.0.1
 
 ### Setting sample data
 
@@ -87,11 +84,8 @@ hadoop fs -put $ASAKUSA_HOME/example-dataset/sales target/testing/directio/sales
 
 You need to set `SPARK_CMD` environment variables to `spark-submit` command path of using Spark environment, or set path to `<path/to/spark>/bin` in your `PATH` environment variables.
 
-Also, you need to set `HADOOP_CMD` environment variables to `hadoop` command path of using Hadoop environment, or set path to `<path/to/hadoop>/bin` in your `PATH` environment variables.
-
 ```
 export SPARK_CMD=/opt/spark/bin/spark-submit
-export HADOOP_CMD=/opt/hadoop/bin/hadoop
 ```
 
 ### Running application
