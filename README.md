@@ -7,7 +7,7 @@ This includes following application projects:
 
 ### Asakusa on Spark
 
-* [`example-basic-spark`](example-basic-spark) - A basic batch application using [Asakusa on Spark](https://github.com/asakusafw/asakusafw-spark) and Asakusa on MapReduce
+* [`example-basic-spark`](example-basic-spark) - A basic batch application using [Asakusa on Spark](https://github.com/asakusafw/asakusafw-spark)
 
 ### Asakusa on M<sup>3</sup>BP
 
