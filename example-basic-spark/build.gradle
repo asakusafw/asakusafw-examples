@@ -12,7 +12,6 @@ buildscript {
 
 apply plugin: 'asakusafw-sdk'
 apply plugin: 'asakusafw-organizer'
-apply plugin: 'asakusafw-mapreduce'
 apply plugin: 'asakusafw-spark'
 apply plugin: 'eclipse'
 

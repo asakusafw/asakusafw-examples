@@ -1,6 +1,6 @@
 # Asakusa on Spark - Example Batch Application
 
-This project contains an example batch application working with [Asakusa on Spark](https://github.com/asakusafw/asakusafw-spark) and Asakusa on MapReduce.
+This project contains an example batch application working with [Asakusa on Spark](https://github.com/asakusafw/asakusafw-spark).
 
 ## How to build
 
