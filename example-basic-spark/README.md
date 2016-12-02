@@ -67,7 +67,7 @@ find "$ASAKUSA_HOME" -name "*.sh" | xargs chmod u+x
 ### Requirements
 
 * Java SE Development Kit >= 1.8
-* [Apache Spark](http://spark.apache.org/) 2.0.1
+* [Apache Spark](http://spark.apache.org/) >= 2.0
 
 ### Setting sample data
 
