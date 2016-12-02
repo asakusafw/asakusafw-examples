@@ -21,7 +21,6 @@ asakusafw {
 
 asakusafwOrganizer {
     profiles.prod {
-        archiveName "${project.name}.tar.gz"
         assembly.into('example-dataset') {
             put 'src/test/example-dataset'
         }
