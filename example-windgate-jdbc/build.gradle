@@ -34,19 +34,21 @@ asakusafwOrganizer {
     }
 }
 
-task setupDDL << {
-    def profileWindGate = new Properties()
-    file("${System.env.ASAKUSA_HOME}/windgate/profile/asakusa.properties").withInputStream {
-        stream -> profileWindGate.load(stream)
-    }
+task setupDDL {
+    doLast {
+        def profileWindGate = new Properties()
+        file("${System.env.ASAKUSA_HOME}/windgate/profile/asakusa.properties").withInputStream {
+            stream -> profileWindGate.load(stream)
+        }
 
-    ant.sql(
-        driver: profileWindGate['resource.jdbc.driver'],
-        url: profileWindGate['resource.jdbc.url'],
-        userid: profileWindGate['resource.jdbc.user'],
-        password: profileWindGate['resource.jdbc.password'],
-        encoding: 'UTF-8',
-        classpath: configurations.jdbcDriver.asPath) {
-        fileset(dir: 'src/main/sql')
+        ant.sql(
+            driver: profileWindGate['resource.jdbc.driver'],
+            url: profileWindGate['resource.jdbc.url'],
+            userid: profileWindGate['resource.jdbc.user'],
+            password: profileWindGate['resource.jdbc.password'],
+            encoding: 'UTF-8',
+            classpath: configurations.jdbcDriver.asPath) {
+            fileset(dir: 'src/main/sql')
+        }
     }
 }
