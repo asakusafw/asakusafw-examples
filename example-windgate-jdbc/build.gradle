@@ -4,9 +4,11 @@ buildscript {
     repositories {
         maven { url 'http://asakusafw.s3.amazonaws.com/maven/releases' }
         maven { url 'http://asakusafw.s3.amazonaws.com/maven/snapshots' }
+        mavenCentral()
     }
     dependencies {
         classpath group: 'com.asakusafw.gradle', name: 'asakusa-distribution', version: '0.9.2-SNAPSHOT'
+        classpath group: 'com.h2database', name: 'h2', version: '1.4.192'
     }
 }
 
@@ -17,38 +19,48 @@ apply plugin: 'asakusafw-spark'
 apply plugin: 'eclipse'
 
 configurations {
-    jdbcDriver
+    pgsqlJdbcDriver
+    h2JdbcDriver
 }
 
 dependencies {
-    jdbcDriver group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
+    pgsqlJdbcDriver group: 'postgresql', name: 'postgresql', version: '9.1-901-1.jdbc4'
+    h2JdbcDriver group: 'com.h2database', name: 'h2', version: '1.4.192'
 }
 
 asakusafwOrganizer {
-    windgate.retryableEnabled true
-    assembly.into('') {
-        put 'src/dist/common'
+    profiles.dev {
+        assembly.into('') {
+            put 'src/dist/dev'
+        }
+        assembly.into('windgate/plugin') {
+            put configurations.h2JdbcDriver
+        }
     }
-    assembly.into('windgate/plugin') {
-        put configurations.jdbcDriver
+    profiles.prod {
+        windgate.retryableEnabled true
+        assembly.into('') {
+            put 'src/dist/prod'
+        }
+        assembly.into('windgate/plugin') {
+            put configurations.pgsqlJdbcDriver
+        }
     }
 }
 
-task setupDDL {
+task stopH2 {
     doLast {
-        def profileWindGate = new Properties()
-        file("${System.env.ASAKUSA_HOME}/windgate/profile/asakusa.properties").withInputStream {
-            stream -> profileWindGate.load(stream)
-        }
-
-        ant.sql(
-            driver: profileWindGate['resource.jdbc.driver'],
-            url: profileWindGate['resource.jdbc.url'],
-            userid: profileWindGate['resource.jdbc.user'],
-            password: profileWindGate['resource.jdbc.password'],
-            encoding: 'UTF-8',
-            classpath: configurations.jdbcDriver.asPath) {
-            fileset(dir: 'src/main/sql')
-        }
+        println 'Stop H2...'
+        org.h2.tools.Server.main("-tcpShutdown", "tcp://localhost:9092")
     }
+}
+
+test {
+    doFirst {
+        println 'Start H2...'
+        delete "${buildDir}/h2"
+        org.h2.tools.Server.main("-tcp", "-baseDir", "${buildDir}/h2")
+        org.h2.tools.RunScript.execute("jdbc:h2:tcp://localhost:9092/asakusa", "asakusa", "asakusa", "src/main/sql/model_ddl.sql", java.nio.charset.StandardCharsets.UTF_8, false)
+    }
+    finalizedBy stopH2
 }
