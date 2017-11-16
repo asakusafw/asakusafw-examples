@@ -22,7 +22,10 @@ import com.asakusafw.vocabulary.batch.BatchDescription;
 /**
  * CSVファイルをテーブルにインポートする。
  */
-@Batch(name = "example.csvImport")
+@Batch(
+    name = "example.csvImport",
+    comment = "Asakusa Framework example batch application"
+)
 public class CsvImportBatch extends BatchDescription {
 
     @Override

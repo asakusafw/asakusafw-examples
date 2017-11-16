@@ -17,12 +17,21 @@ package com.asakusafw.example.summarization.batch;
 
 import com.asakusafw.example.summarization.jobflow.SummarizeReceiptJobFlow;
 import com.asakusafw.vocabulary.batch.Batch;
+import com.asakusafw.vocabulary.batch.Batch.Parameter;
 import com.asakusafw.vocabulary.batch.BatchDescription;
 
 /**
  * POSレシートデータを商品別・カテゴリ別・店舗別に集計する。
  */
-@Batch(name = "example.summarization")
+@Batch(
+    name = "example.summarization",
+    comment = "Asakusa Framework example batch application",
+    parameters = {
+        @Parameter(key = "FROM_ISSUE_DATE", comment = "The issue start date", pattern = "\\d{8}"),
+        @Parameter(key = "TO_ISSUE_DATE", comment = "The issue end date", pattern = "\\d{8}"),
+    },
+    strict = true
+)
 public class SummarizeReceiptBatch extends BatchDescription {
 
 	@Override
