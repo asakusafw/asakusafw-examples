@@ -17,12 +17,20 @@ package com.asakusafw.example.csv.batch;
 
 import com.asakusafw.example.csv.jobflow.CategorySummaryJob;
 import com.asakusafw.vocabulary.batch.Batch;
+import com.asakusafw.vocabulary.batch.Batch.Parameter;
 import com.asakusafw.vocabulary.batch.BatchDescription;
 
 /**
  * 売上の集計を計算する。
  */
-@Batch(name = "example.summarizeSales")
+@Batch(
+    name = "example.summarizeSales",
+    comment = "Asakusa Framework example batch application",
+    parameters = {
+        @Parameter(key = "date", comment = "The target date", pattern = "\\d{4}-\\d{2}-\\d{2}"),
+    },
+    strict = true
+)
 public class SummarizeBatch extends BatchDescription {
 
     @Override

@@ -15,14 +15,17 @@
  */
 package com.example.batch;
 
-import com.example.jobflow.CategorySummaryJob;
 import com.asakusafw.vocabulary.batch.Batch;
 import com.asakusafw.vocabulary.batch.BatchDescription;
+import com.example.jobflow.CategorySummaryJob;
 
 /**
  * 売上の集計を計算する。
  */
-@Batch(name = "example.summarizeSales")
+@Batch(
+    name = "example.summarizeSales",
+    comment = "Asakusa Framework example batch application"
+)
 public class SummarizeBatch extends BatchDescription {
 
     @Override

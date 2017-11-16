@@ -22,7 +22,10 @@ import com.asakusafw.vocabulary.batch.BatchDescription;
 /**
  * 売上の集計を計算する。
  */
-@Batch(name = "example.summarizeSales")
+@Batch(
+    name = "example.summarizeSales",
+    comment = "Asakusa Framework example batch application"
+)
 public class SummarizeBatch extends BatchDescription {
 
     @Override
