@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'com.asakusafw.gradle', name: 'asakusa-distribution', version: '0.10.2'
+        classpath group: 'com.asakusafw.gradle', name: 'asakusa-distribution', version: '0.10.3-SNAPSHOT'
         classpath group: 'com.h2database', name: 'h2', version: '1.4.192'
     }
 }
