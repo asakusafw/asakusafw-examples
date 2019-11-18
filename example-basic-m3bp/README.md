@@ -103,4 +103,4 @@ Then you should see the output files on `$HOME/target/testing/directio/result` d
 * [Asakusa on M<sup>3</sup>BP](https://github.com/asakusafw/asakusafw-m3bp)
 
 ## Resources
-* [Asakusa on M<sup>3</sup>BP Documentation (ja)](http://docs.asakusafw.com/asakusa-on-m3bp/)
+* [Asakusa on M<sup>3</sup>BP Documentation (ja)](https://docs.asakusafw.com/asakusa-on-m3bp/)

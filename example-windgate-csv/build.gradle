@@ -2,8 +2,8 @@ group 'com.asakusafw.example.csv'
 
 buildscript {
     repositories {
-        maven { url 'http://asakusafw.s3.amazonaws.com/maven/releases' }
-        maven { url 'http://asakusafw.s3.amazonaws.com/maven/snapshots' }
+        maven { url 'https://asakusafw.s3.amazonaws.com/maven/releases' }
+        maven { url 'https://asakusafw.s3.amazonaws.com/maven/snapshots' }
     }
     dependencies {
         classpath group: 'com.asakusafw.gradle', name: 'asakusa-distribution', version: '0.10.4-SNAPSHOT'

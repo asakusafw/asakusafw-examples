@@ -67,7 +67,7 @@ find "$ASAKUSA_HOME" -name "*.sh" | xargs chmod u+x
 ### Requirements
 
 * Java SE Development Kit >= 1.8
-* [Apache Spark](http://spark.apache.org/) >= 2.0
+* [Apache Spark](https://spark.apache.org/) >= 2.0
 
 ### Setting sample data
 
@@ -105,4 +105,4 @@ Then you should see the output files on `$HOME/target/testing/directio/result` d
 * [Asakusa on Spark](https://github.com/asakusafw/asakusafw-spark)
 
 ## Resources
-* [Asakusa on Spark Documentation (ja)](http://docs.asakusafw.com/asakusa-on-spark/)
+* [Asakusa on Spark Documentation (ja)](https://docs.asakusafw.com/asakusa-on-spark/)
